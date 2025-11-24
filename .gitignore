@@ -211,6 +211,13 @@ __marimo__/
 /pubmedqa/data
 /.github
 
+# Translation pipeline outputs and caches
+/pubmedqa/translation/outputs/
+/pubmedqa/translation/models_cache/
+/pubmedqa/translation/venv/
+*.umls
+*.mesh
+
 # Mac system files
 .DS_Store
 
