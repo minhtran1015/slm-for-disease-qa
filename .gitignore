@@ -207,6 +207,9 @@ marimo/_lsp/
 __marimo__/
 
 # Large datasets
-/medmcqa
-/pubmedqa
+/medmcqa/data
+/pubmedqa/data
 /.github
+
+# Mac system files
+.DS_Store
