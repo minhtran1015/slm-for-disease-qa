@@ -1,0 +1,115 @@
+{
+  "model_name": "vinai/vinai-translate-en2vi",
+  "scispacy_model": "en_core_sci_sm",
+  "linker_name": "umls",
+  "batch_size": 16,
+  "max_length": 512,
+  "num_beams": 4,
+  "resolve_abbreviations": true,
+  "confidence_threshold": 0.7,
+  "cache_dir": "./models_cache",
+  
+  "description": "Configuration for UMLS-aware medical translation pipeline",
+  
+  "model_options": {
+    "vinai": {
+      "description": "VinAI English-Vietnamese translation model",
+      "model_name": "vinai/vinai-translate-en2vi",
+      "source_lang": "en_XX",
+      "target_lang": "vi_VN",
+      "recommended_batch_size": 16,
+      "recommended_num_beams": 4
+    }
+  },
+  
+  "scispacy_options": {
+    "models": {
+      "en_core_sci_sm": {
+        "description": "Small SciSpacy model (fast, recommended for large datasets)",
+        "url": "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz",
+        "size": "~100MB"
+      },
+      "en_core_sci_md": {
+        "description": "Medium SciSpacy model (balanced)",
+        "url": "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_md-0.5.4.tar.gz",
+        "size": "~300MB"
+      },
+      "en_core_sci_lg": {
+        "description": "Large SciSpacy model (most accurate)",
+        "url": "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_lg-0.5.4.tar.gz",
+        "size": "~600MB"
+      }
+    },
+    "linkers": {
+      "umls": {
+        "description": "Unified Medical Language System (comprehensive medical terminology)",
+        "knowledge_base": "UMLS Metathesaurus",
+        "coverage": "~4M concepts, 200+ sources"
+      },
+      "mesh": {
+        "description": "Medical Subject Headings (PubMed/MEDLINE vocabulary)",
+        "knowledge_base": "MeSH",
+        "coverage": "~29K descriptors, hierarchical structure"
+      },
+      "rxnorm": {
+        "description": "RxNorm (drug terminology)",
+        "knowledge_base": "RxNorm",
+        "coverage": "Medications and drug information"
+      }
+    }
+  },
+  
+  "processing_options": {
+    "resolve_abbreviations": {
+      "description": "Resolve medical abbreviations to full terms",
+      "default": true,
+      "example": "MI → Myocardial Infarction"
+    },
+    "confidence_threshold": {
+      "description": "Minimum confidence score for UMLS concept mapping (0.0-1.0)",
+      "default": 0.7,
+      "recommendation": "Use 0.7 for high-quality mappings, 0.5 for more coverage"
+    }
+  },
+  
+  "hardware_recommendations": {
+    "gpu": {
+      "recommended_vram": "8GB+",
+      "batch_size_8gb": 16,
+      "batch_size_16gb": 32,
+      "batch_size_24gb": 64
+    },
+    "cpu": {
+      "note": "CPU mode supported but ~10x slower",
+      "recommended_batch_size": 4,
+      "recommended_threads": "All available cores"
+    }
+  },
+  
+  "output_format": {
+    "description": "Each sample contains",
+    "fields": [
+      "QUESTION (original English)",
+      "QUESTION_VI (Vietnamese translation)",
+      "CONTEXTS (original English context sentences)",
+      "CONTEXTS_VI (Vietnamese context translations)",
+      "ANSWER (yes/no/maybe)",
+      "ANSWER_VI (có/không/có thể)",
+      "UMLS_CONCEPTS (list of extracted medical entities)",
+      "MEDICAL_GLOSSARY (formatted string for teacher verification)",
+      "TRANSLATION_METADATA (model info, timestamp, concept count)"
+    ]
+  },
+  
+  "teacher_verification": {
+    "description": "How to demonstrate UMLS usage to your teacher",
+    "steps": [
+      "1. Show the MEDICAL_GLOSSARY field in output JSON",
+      "2. Explain each concept mapping: 'original term → canonical name (CUI code)'",
+      "3. Point out confidence scores (typically 0.7-1.0)",
+      "4. Show that Vietnamese translation uses medically accurate terminology",
+      "5. Highlight that UMLS_CONCEPTS contains full entity details (start/end positions, aliases, types)"
+    ],
+    "example_glossary": "statins → Hydroxymethylglutaryl-CoA Reductase Inhibitors (CUI:C0020302, conf:0.95) | atrial fibrillation → Atrial Fibrillation (CUI:C0004238, conf:0.98)"
+  }
+}
