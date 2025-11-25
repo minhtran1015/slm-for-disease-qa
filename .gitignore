@@ -206,19 +206,15 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Large datasets
-/medmcqa/data
-/pubmedqa/data
+# Setting GitHub
 /.github
-
-# Translation pipeline outputs and caches
-/pubmedqa/translation/outputs/
-/pubmedqa/translation/models_cache/
-/pubmedqa/translation/venv/
-*.umls
-*.mesh
 
 # Mac system files
 .DS_Store
 
+# Archives
 *.zip
+*.tar.gz
+*.rar
+*.7z
+

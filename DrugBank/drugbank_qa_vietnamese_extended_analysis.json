@@ -1,0 +1,58 @@
+{
+  "original_dataset": {
+    "train_samples": 17576,
+    "test_samples": 1952,
+    "total_samples": 19528
+  },
+  "vietnamese_addition": {
+    "train_samples": 204,
+    "test_samples": 22,
+    "total_samples": 226,
+    "drugs_added": 113
+  },
+  "extended_dataset": {
+    "train_samples": 17780,
+    "test_samples": 1974,
+    "total_samples": 19754
+  },
+  "vietnamese_drug_examples": [
+    "Paracetamol",
+    "Aspirin",
+    "Ibuprofen",
+    "Diclofenac",
+    "Ketoprofen",
+    "Naproxen",
+    "Celecoxib",
+    "Amoxicillin",
+    "Augmentin",
+    "Ciprofloxacin"
+  ],
+  "vietnamese_name_examples": [
+    "Thuốc giảm đau Paracetamol",
+    "Thuốc hạ sốt cho trẻ em",
+    "Aspirin bảo vệ tim",
+    "Thuốc chống viêm Ibuprofen",
+    "Kháng sinh Amoxicillin",
+    "Thuốc kháng viêm Augmentin",
+    "Kháng sinh đường uống Azithromycin",
+    "Thuốc trị nhiễm khuẩn Ciprofloxacin",
+    "Thuốc dạ dày Omeprazole",
+    "Thuốc chống acid dạ dày"
+  ],
+  "sample_examples": {
+    "vietnamese_positive": {
+      "instruction": "Dựa vào kiến thức về thuốc và y học, hãy trả lời Đúng hoặc Sai.",
+      "input": "Kháng sinh đường uống Azithromycin là thuốc được cấp phép lưu hành không?",
+      "output": "Đúng",
+      "drug_name": "Kháng sinh đường uống Azithromycin",
+      "sample_type": "positive_vietnamese"
+    },
+    "vietnamese_negative": {
+      "instruction": "Dựa vào kiến thức về thuốc và y học, hãy trả lời Đúng hoặc Sai.",
+      "input": "Simethicone là tên một xét nghiệm y tế phải không?",
+      "output": "Sai",
+      "drug_name": "Simethicone",
+      "sample_type": "negative_vietnamese"
+    }
+  }
+}
