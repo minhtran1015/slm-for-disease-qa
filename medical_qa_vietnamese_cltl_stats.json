@@ -1,0 +1,23 @@
+{
+  "cltl_configuration": {
+    "context_language": "english_only",
+    "question_language": "vietnamese",
+    "answer_language": "vietnamese",
+    "knowledge_transfer": "international_to_vietnamese"
+  },
+  "dataset_stats": {
+    "total_samples": 1890,
+    "train_samples": 1701,
+    "test_samples": 189,
+    "pubmedqa_source": 890,
+    "bioasq_source": 1000
+  },
+  "answer_distribution": {
+    "Đúng": 1221,
+    "Sai": 669
+  },
+  "context_preservation": {
+    "english_contexts": 0,
+    "bilingual_contexts": 1890
+  }
+}
