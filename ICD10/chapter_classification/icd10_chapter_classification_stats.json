@@ -1,0 +1,8 @@
+{
+  "total_questions": 20000,
+  "true_questions": 10000,
+  "false_questions": 10000,
+  "unique_diseases": 9888,
+  "generation_date": "2025-11-27",
+  "sample_method": "random_10k_from_12k"
+}
