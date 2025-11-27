@@ -1,0 +1,15 @@
+# ViMedAQA Processing Dependencies
+
+# Core data processing
+pandas>=2.0.0
+pyarrow>=14.0.0
+tqdm>=4.65.0
+
+# HuggingFace datasets (for original method)
+datasets>=2.14.0
+
+# Gemini API for statement generation
+google-generativeai>=0.8.0
+
+# Environment variable management
+python-dotenv>=1.0.0

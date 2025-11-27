@@ -1,0 +1,20 @@
+# Environment variables (contains API keys)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Processing outputs and checkpoints
+*.jsonl
+*_checkpoint.json
+*_stats.json
+*.backup.*
+
+# OS files
+.DS_Store
+Thumbs.db
