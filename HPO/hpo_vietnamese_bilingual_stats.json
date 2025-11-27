@@ -1,0 +1,14 @@
+{
+  "total_samples": 20000,
+  "train_samples": 18000,
+  "test_samples": 2000,
+  "true_samples": 10000,
+  "false_samples": 10000,
+  "balance_ratio": "10000:10000",
+  "templates_used": {
+    "true": 5,
+    "false": 5
+  },
+  "translation_model": "facebook/nllb-200-distilled-600M",
+  "bilingual_format": "Vietnamese (English)"
+}
