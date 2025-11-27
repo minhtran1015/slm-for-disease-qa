@@ -24,6 +24,8 @@ from pathlib import Path
 from datetime import datetime
 from tqdm import tqdm
 from typing import Optional, Dict, Any, List
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 
 try:
     import google.generativeai as genai
@@ -42,11 +44,11 @@ except ImportError:
 SEED = 42
 random.seed(SEED)
 
-# API Configuration
+# API Configuration - OPTIMIZED FOR PAID API
 GEMINI_MODEL = "gemini-2.5-flash"  # Updated to use Gemini 2.5 Flash
-MAX_RETRIES = 3
-RETRY_DELAY = 2  # seconds
-REQUESTS_PER_MINUTE = 15  # Rate limiting
+MAX_RETRIES = 1  # Single retry only
+RETRY_DELAY = 0.1  # Minimal delay
+REQUESTS_PER_MINUTE = 2000  # Aggressive rate for paid API
 
 # File paths
 INPUT_PARQUET = "train-00000-of-00001.parquet"
@@ -54,8 +56,8 @@ OUTPUT_FILE = "vimedaqa_yesno_gemini_10k_train.jsonl"
 CHECKPOINT_FILE = "vimedaqa_gemini_checkpoint.json"
 STATS_FILE = "vimedaqa_gemini_stats.json"
 
-# Processing settings
-SAVE_INTERVAL = 50  # Save checkpoint every N samples
+# Processing settings - OPTIMIZED FOR PAID API
+SAVE_INTERVAL = 20  # Smaller batches for faster parallel processing
 MAX_SAMPLES = 10000  # Hardcoded to process 10k samples (produces ~20k outputs)
 BALANCE_RATIO = 1.0  # 1.0 = equal Đúng/Sai samples
 
@@ -176,12 +178,12 @@ def call_gemini_api(
     retries: int = MAX_RETRIES
 ) -> Optional[str]:
     """
-    Call Gemini API with retry logic and rate limiting.
+    Call Gemini API with minimal retry logic for paid API.
     
     Returns:
         Generated text or None if failed.
     """
-    for attempt in range(retries):
+    for attempt in range(retries + 1):
         try:
             response = model.generate_content(prompt)
             
@@ -189,25 +191,22 @@ def call_gemini_api(
             if response and response.text:
                 return response.text.strip()
             else:
-                print(f"  ⚠️ Empty response on attempt {attempt + 1}")
+                if attempt == 0:  # Only print on first failure
+                    print(f"  ⚠️ Empty response")
                 
         except Exception as e:
             error_str = str(e).lower()
             
-            # Handle rate limiting
+            # For paid API, minimal waiting and quick failures
             if "rate" in error_str or "quota" in error_str or "429" in error_str:
-                wait_time = RETRY_DELAY * (attempt + 2)
-                print(f"  ⏳ Rate limited. Waiting {wait_time}s...")
-                time.sleep(wait_time)
+                if attempt < retries:
+                    time.sleep(0.1)  # Very short wait for paid API
                 
-            # Handle other API errors
-            elif "api" in error_str or "500" in error_str:
-                print(f"  ⚠️ API error on attempt {attempt + 1}: {e}")
-                time.sleep(RETRY_DELAY)
+            elif "api" in error_str or "500" in error_str or "404" in error_str:
+                return None  # Immediate failure for API errors
                 
             else:
-                print(f"  ❌ Unexpected error: {e}")
-                return None
+                return None  # Immediate failure for other errors
     
     return None
 
@@ -242,72 +241,73 @@ def save_samples(samples: List[Dict], filepath: str, mode: str = 'a'):
             f.write('\n')
 
 
-def process_single_sample(
+def process_batch_samples(
     model: genai.GenerativeModel,
-    row: pd.Series,
-    generate_false: bool = True
+    batch_samples: List[pd.Series],
+    batch_start_idx: int
 ) -> List[Dict[str, Any]]:
     """
-    Process a single ViMedAQA sample and generate True/False statement pairs.
-    
-    Args:
-        model: Gemini model instance
-        row: Pandas row with question/answer/context
-        generate_false: Whether to generate a false statement
-    
-    Returns:
-        List of generated samples (1 or 2 depending on generate_false)
+    Process a batch of samples with parallel API calls.
     """
     results = []
     
-    question = str(row.get('question', '')).strip()
-    answer = str(row.get('answer', '')).strip()
-    context = str(row.get('context', '')).strip() if 'context' in row else ""
+    # Create all prompts first
+    prompts = []
+    sample_info = []
     
-    if not question or not answer:
-        return results
-    
-    # Rate limiting
-    time.sleep(60 / REQUESTS_PER_MINUTE)
-    
-    # Generate TRUE statement
-    true_prompt = create_statement_prompt(question, answer, context)
-    true_statement = call_gemini_api(model, true_prompt)
-    
-    if true_statement:
-        # Clean the statement
-        true_statement = true_statement.replace("(Đ/S)", "").strip()
-        true_statement = true_statement.rstrip('.')
+    for i, row in enumerate(batch_samples):
+        question = str(row.get('question', '')).strip()
+        answer = str(row.get('answer', '')).strip()
+        context = str(row.get('context', '')).strip() if 'context' in row else ""
         
-        results.append({
-            "instruction": random.choice(INSTRUCTION_TEMPLATES),
-            "input": true_statement,
-            "output": "Đúng",
-            "question_type": "vimedaqa_true",
-            "source_question": question,
-            "source_answer": answer[:200] + "..." if len(answer) > 200 else answer,
-        })
-    
-    # Generate FALSE statement
-    if generate_false:
-        time.sleep(60 / REQUESTS_PER_MINUTE)  # Rate limiting
-        
-        false_prompt = create_false_statement_prompt(question, answer, context)
-        false_statement = call_gemini_api(model, false_prompt)
-        
-        if false_statement:
-            # Clean the statement
-            false_statement = false_statement.replace("(Đ/S)", "").strip()
-            false_statement = false_statement.rstrip('.')
+        if not question or not answer:
+            continue
             
-            results.append({
-                "instruction": random.choice(INSTRUCTION_TEMPLATES),
-                "input": false_statement,
-                "output": "Sai",
-                "question_type": "vimedaqa_false",
-                "source_question": question,
-                "source_answer": answer[:200] + "..." if len(answer) > 200 else answer,
-            })
+        # True statement prompt
+        true_prompt = create_statement_prompt(question, answer, context)
+        false_prompt = create_false_statement_prompt(question, answer, context)
+        
+        prompts.extend([true_prompt, false_prompt])
+        sample_info.extend([
+            (question, answer, True, batch_start_idx + i),
+            (question, answer, False, batch_start_idx + i)
+        ])
+    
+    # Process prompts with ThreadPoolExecutor for parallel API calls
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        # Submit all API calls
+        future_to_info = {}
+        for i, prompt in enumerate(prompts):
+            future = executor.submit(call_gemini_api, model, prompt)
+            future_to_info[future] = sample_info[i]
+            
+            # Small delay between submissions for rate limiting
+            time.sleep(60 / REQUESTS_PER_MINUTE / 10)  # Distributed delay
+        
+        # Collect results as they complete
+        for future in as_completed(future_to_info):
+            question, answer, is_true, sample_idx = future_to_info[future]
+            
+            try:
+                statement = future.result()
+                
+                if statement:
+                    # Clean the statement
+                    statement = statement.replace("(Đ/S)", "").strip().rstrip('.')
+                    
+                    result = {
+                        "instruction": random.choice(INSTRUCTION_TEMPLATES),
+                        "input": statement,
+                        "output": "Đúng" if is_true else "Sai",
+                        "question_type": "vimedaqa_true" if is_true else "vimedaqa_false",
+                        "source_question": question,
+                        "source_answer": answer[:200] + "..." if len(answer) > 200 else answer,
+                        "sample_idx": sample_idx
+                    }
+                    results.append(result)
+                    
+            except Exception as e:
+                continue  # Skip failed samples
     
     return results
 
@@ -376,11 +376,11 @@ def main():
         Path(OUTPUT_FILE).rename(backup_name)
         print(f"   📦 Backed up existing file to {backup_name}")
     
-    # Processing
-    print(f"\n🔄 Processing samples...")
-    print(f"   Save interval: every {SAVE_INTERVAL} samples")
+    # Processing with batch optimization for paid API
+    print(f"\n🔄 Processing samples with batch optimization...")
+    print(f"   Batch size: {SAVE_INTERVAL} samples")
+    print(f"   Parallel workers: 10")
     print(f"   Rate limit: {REQUESTS_PER_MINUTE} requests/minute")
-    print(f"   Generate FALSE statements: True (for balance)")
     print("-" * 60)
     
     batch_samples = []
@@ -403,50 +403,63 @@ def main():
                 if orig_idx in original_processed:
                     processed_df_indices.add(df_idx)
         
-        with tqdm(total=len(df), desc="Processing samples", unit="sample", initial=len(processed_df_indices)) as pbar:
+        with tqdm(total=len(df), desc="Processing batches", unit="sample", initial=len(processed_df_indices)) as pbar:
+            
+            batch = []
+            batch_start_idx = 0
+            
             for df_idx, row in df.iterrows():
                 # Skip already processed
                 if df_idx in processed_df_indices:
                     pbar.update(1)
                     continue
-            
-                # Process sample (always generate both TRUE and FALSE)
-                results = process_single_sample(model, row, generate_false=True)
                 
-                if results:
-                    batch_samples.extend(results)
-                    processed_df_indices.add(df_idx)
-                    
-                    # Map back to original index for checkpoint
-                    if "sampled_indices" in checkpoint and checkpoint["sampled_indices"] is not None:
-                        orig_idx = checkpoint["sampled_indices"][int(df_idx)]
-                        processed_indices.add(orig_idx)
-                    else:
-                        processed_indices.add(df_idx)
-                    
-                    # Update stats
-                    for r in results:
-                        if r["output"] == "Đúng":
-                            stats["successful_true"] += 1
-                        else:
-                            stats["successful_false"] += 1
-                    
-                    stats["total_processed"] = len(processed_indices)
-                else:
-                    stats["failed"] += 1
+                batch.append(row)
                 
-                pbar.update(1)
-            
-                # Save periodically
-                if len(batch_samples) >= SAVE_INTERVAL:
-                    save_samples(batch_samples, OUTPUT_FILE, mode='a')
-                    checkpoint["processed_indices"] = list(processed_indices)
-                    checkpoint["last_processed"] = df_idx
-                    checkpoint.update(stats)
-                    save_checkpoint(checkpoint)
-                    
-                    tqdm.write(f"💾 Saved {len(batch_samples)} samples (Total: {stats['total_processed']})")
-                    batch_samples = []
+                # Process batch when full or at end
+                if len(batch) >= SAVE_INTERVAL or df_idx == len(df) - 1:
+                    if batch:
+                        # Process batch with parallel API calls
+                        batch_results = process_batch_samples(model, batch, batch_start_idx)
+                        
+                        # Update tracking
+                        for result in batch_results:
+                            sample_idx = result.pop('sample_idx', 0)
+                            processed_df_indices.add(sample_idx)
+                            
+                            # Map back to original index for checkpoint
+                            if "sampled_indices" in checkpoint and checkpoint["sampled_indices"] is not None:
+                                if sample_idx < len(checkpoint["sampled_indices"]):
+                                    orig_idx = checkpoint["sampled_indices"][sample_idx]
+                                    processed_indices.add(orig_idx)
+                            else:
+                                processed_indices.add(sample_idx)
+                            
+                            # Update stats
+                            if result["output"] == "Đúng":
+                                stats["successful_true"] += 1
+                            else:
+                                stats["successful_false"] += 1
+                        
+                        batch_samples.extend(batch_results)
+                        stats["total_processed"] = len(processed_indices)
+                        
+                        # Save batch
+                        if batch_samples:
+                            save_samples(batch_samples, OUTPUT_FILE, mode='a')
+                            checkpoint["processed_indices"] = list(processed_indices)
+                            checkpoint["last_processed"] = df_idx
+                            checkpoint.update(stats)
+                            save_checkpoint(checkpoint)
+                            
+                            tqdm.write(f"💾 Batch saved: {len(batch_results)} statements from {len(batch)} samples")
+                            batch_samples = []
+                        
+                        # Update progress
+                        pbar.update(len(batch))
+                        
+                        batch = []
+                        batch_start_idx = df_idx + 1
         
         # Save remaining
         if batch_samples:
