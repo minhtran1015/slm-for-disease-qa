@@ -45,7 +45,7 @@ random.seed(SEED)
 GEMINI_MODEL = "gemini-2.5-flash"
 MAX_RETRIES = 1
 RETRY_DELAY = 0.5
-REQUESTS_PER_MINUTE = 2000
+REQUESTS_PER_MINUTE = 1000
 BATCH_SIZE = 10  # Process samples in batches
 MAX_CONCURRENT = 5  # Max concurrent API calls
 
@@ -54,7 +54,7 @@ OUTPUT_FILE = "vimedaqa_yesno_train.jsonl"
 CHECKPOINT_FILE = "vimedaqa_checkpoint.json"
 STATS_FILE = "vimedaqa_stats.json"
 
-MAX_SAMPLES = 0   # 0 = Process all 39,881 samples (~80k statements), or set to specific number for testing
+MAX_SAMPLES = 10000   # Test with 50 samples for batch processing validation
 
 INSTRUCTION_TEMPLATES = [
     "Trả lời Đúng hoặc Sai cho câu hỏi y khoa sau.",
@@ -373,7 +373,7 @@ def main():
                     pbar.update(end_idx - start_idx)
                     continue
                 
-                print(f"\n📦 Processing batch {batch_idx + 1}/{total_batches} ({len(batch_data)} samples)...")
+                # Silent processing to avoid terminal spam
                 
                 # Process batch
                 batch_results = process_batch(model, batch_data)
@@ -386,7 +386,7 @@ def main():
                     if result['true_success'] and result['true_sample']:
                         save_sample(result['true_sample'], OUTPUT_FILE)
                         stats["successful_true"] += 1
-                        print(f"   ✅ Sample {df_idx}: TRUE statement saved")
+                        # TRUE statement saved silently
                     else:
                         stats["failed"] += 1
                         print(f"   ❌ Sample {df_idx}: TRUE statement failed")
@@ -395,7 +395,7 @@ def main():
                     if result['false_success'] and result['false_sample']:
                         save_sample(result['false_sample'], OUTPUT_FILE)
                         stats["successful_false"] += 1
-                        print(f"   ✅ Sample {df_idx}: FALSE statement saved")
+                        # FALSE statement saved silently
                     else:
                         stats["failed"] += 1
                         print(f"   ❌ Sample {df_idx}: FALSE statement failed")
