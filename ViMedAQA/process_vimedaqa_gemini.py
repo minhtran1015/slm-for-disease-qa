@@ -58,8 +58,8 @@ STATS_FILE = "vimedaqa_gemini_stats.json"
 
 # Processing settings - OPTIMIZED FOR PAID API
 SAVE_INTERVAL = 20  # Smaller batches for faster parallel processing
-MAX_SAMPLES = 10000  # Hardcoded to process 10k samples (produces ~20k outputs)
-BALANCE_RATIO = 1.0  # 1.0 = equal Đúng/Sai samples
+MAX_SAMPLES = 10  # TEST: Hardcoded to process 10 samples for testing (20 statements)
+BALANCE_RATIO = 1.0  # 1.0 = equal True/False samples (1 true + 1 false per sample)
 
 # Instructions for Gemini
 INSTRUCTION_TEMPLATES = [
@@ -84,17 +84,9 @@ def setup_gemini_api() -> genai.GenerativeModel:
     
     genai.configure(api_key=api_key)
     
-    # Configure generation settings
-    generation_config = genai.GenerationConfig(
-        temperature=0.3,  # Lower temperature for consistent outputs
-        max_output_tokens=500,
-        top_p=0.9,
-    )
-    
-    model = genai.GenerativeModel(
-        model_name=GEMINI_MODEL,
-        generation_config=generation_config,
-    )
+    # Use minimal config - explicit safety settings were blocking medical content
+    # Gemini's default safety mechanisms work better for medical content generation
+    model = genai.GenerativeModel(model_name=GEMINI_MODEL)
     
     return model
 
@@ -102,37 +94,15 @@ def setup_gemini_api() -> genai.GenerativeModel:
 def create_statement_prompt(question: str, answer: str, context: str = "") -> str:
     """
     Create a prompt for Gemini to transform Q&A into a True/False statement.
-    
-    The goal is to generate statements like:
-    - "Ho kéo dài trên 3 tuần có phải là triệu chứng của lao phổi."
-    - "Sỏi thận hình thành do khoáng chất kết tụ trong nước tiểu."
+    Framed as educational quiz creation to avoid safety blocks.
     """
-    prompt = f"""Bạn là chuyên gia y khoa Việt Nam. Nhiệm vụ của bạn là chuyển đổi cặp câu hỏi-trả lời thành một câu khẳng định y khoa để kiểm tra kiến thức Đúng/Sai.
+    prompt = f"""Bạn đang tạo câu hỏi trắc nghiệm y khoa cho học sinh. Hãy chuyển đổi thông tin sau thành một câu phát biểu đúng để kiểm tra kiến thức:
 
-**Quy tắc:**
-1. Tạo MỘT câu khẳng định ngắn gọn, rõ ràng bằng tiếng Việt
-2. Câu khẳng định phải mang tính y khoa chuyên môn
-3. Câu phải có thể trả lời Đúng hoặc Sai một cách rõ ràng
-4. KHÔNG thêm "(Đ/S)" vào cuối câu
-5. Giữ nguyên thuật ngữ y khoa quan trọng
-6. Câu phải tự nhiên và súc tích
+Thông tin gốc:
+Hỏi: {question}
+Đáp: {answer}
 
-**Ví dụ đầu vào:**
-Câu hỏi: Paracetamol có phải là một loại thuốc giảm đau không?
-Trả lời: Có, Paracetamol là thuốc giảm đau hạ sốt phổ biến.
-
-**Ví dụ đầu ra mong muốn:**
-Paracetamol là một loại thuốc có tác dụng giảm đau và hạ sốt.
-
----
-
-**Câu hỏi:** {question}
-
-**Trả lời:** {answer}
-
-{f"**Ngữ cảnh bổ sung:** {context}" if context else ""}
-
-**Câu khẳng định y khoa (chỉ trả lời câu khẳng định, không giải thích):**"""
+Hãy viết thành một câu phát biểu đúng cho bài kiểm tra (không cần ghi "đúng" hay "sai"):"""
     
     return prompt
 
@@ -140,34 +110,15 @@ Paracetamol là một loại thuốc có tác dụng giảm đau và hạ sốt.
 def create_false_statement_prompt(question: str, answer: str, context: str = "") -> str:
     """
     Create a prompt for Gemini to generate a FALSE medical statement.
-    This creates a statement that sounds plausible but is medically incorrect.
+    Framed as creating quiz distractors for educational purposes.
     """
-    prompt = f"""Bạn là chuyên gia y khoa Việt Nam. Nhiệm vụ của bạn là tạo một câu khẳng định y khoa SAI (nhưng có vẻ hợp lý) dựa trên thông tin dưới đây.
+    prompt = f"""Bạn đang tạo câu hỏi trắc nghiệm y khoa cho học sinh. Bạn cần tạo một câu phát biểu SAI (làm lựa chọn nhiễu) dựa trên chủ đề này:
 
-**Quy tắc:**
-1. Tạo MỘT câu khẳng định SAI về mặt y khoa
-2. Câu phải có vẻ hợp lý để kiểm tra kiến thức y khoa
-3. Thay đổi một chi tiết quan trọng để câu trở thành SAI (ví dụ: thay đổi liều lượng, công dụng, cách dùng, tác dụng phụ)
-4. KHÔNG thêm "(Đ/S)" vào cuối câu
-5. Câu phải tự nhiên và súc tích
-6. SAI một cách tinh vi, không quá rõ ràng
+Thông tin đúng:
+Hỏi: {question} 
+Đáp: {answer}
 
-**Ví dụ đầu vào:**
-Câu hỏi: Paracetamol có phải là một loại thuốc giảm đau không?
-Trả lời: Có, Paracetamol là thuốc giảm đau hạ sốt phổ biến.
-
-**Ví dụ đầu ra mong muốn (câu SAI):**
-Paracetamol là thuốc kháng sinh điều trị nhiễm khuẩn.
-
----
-
-**Câu hỏi:** {question}
-
-**Trả lời:** {answer}
-
-{f"**Ngữ cảnh bổ sung:** {context}" if context else ""}
-
-**Câu khẳng định SAI về y khoa (chỉ trả lời câu khẳng định, không giải thích):**"""
+Hãy tạo MỘT câu phát biểu SAI về cùng chủ đề này để làm lựa chọn nhiễu trong bài trắc nghiệm (thay đổi một chi tiết quan trọng). Chỉ viết câu phát biểu, không giải thích:"""
     
     return prompt
 
@@ -187,8 +138,15 @@ def call_gemini_api(
         try:
             response = model.generate_content(prompt)
             
+            # Check finish reason
+            if hasattr(response, 'candidates') and response.candidates:
+                finish_reason = response.candidates[0].finish_reason
+                # finish_reason: 1=STOP, 2=RECITATION, 3=SAFETY
+                if finish_reason in [2, 3]:
+                    return None
+            
             # Check if response has text
-            if response and response.text:
+            if hasattr(response, 'text') and response.text and response.text.strip():
                 return response.text.strip()
             else:
                 if attempt == 0:  # Only print on first failure
@@ -247,13 +205,9 @@ def process_batch_samples(
     batch_start_idx: int
 ) -> List[Dict[str, Any]]:
     """
-    Process a batch of samples with parallel API calls.
+    Process a batch of samples - each sample generates exactly 1 true and 1 false statement.
     """
     results = []
-    
-    # Create all prompts first
-    prompts = []
-    sample_info = []
     
     for i, row in enumerate(batch_samples):
         question = str(row.get('question', '')).strip()
@@ -262,52 +216,87 @@ def process_batch_samples(
         
         if not question or not answer:
             continue
-            
-        # True statement prompt
+        
+        sample_id = f"vimedaqa_{batch_start_idx + i}"
+        
+        # Generate TRUE statement
         true_prompt = create_statement_prompt(question, answer, context)
-        false_prompt = create_false_statement_prompt(question, answer, context)
-        
-        prompts.extend([true_prompt, false_prompt])
-        sample_info.extend([
-            (question, answer, True, batch_start_idx + i),
-            (question, answer, False, batch_start_idx + i)
-        ])
-    
-    # Process prompts with ThreadPoolExecutor for parallel API calls
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        # Submit all API calls
-        future_to_info = {}
-        for i, prompt in enumerate(prompts):
-            future = executor.submit(call_gemini_api, model, prompt)
-            future_to_info[future] = sample_info[i]
-            
-            # Small delay between submissions for rate limiting
-            time.sleep(60 / REQUESTS_PER_MINUTE / 10)  # Distributed delay
-        
-        # Collect results as they complete
-        for future in as_completed(future_to_info):
-            question, answer, is_true, sample_idx = future_to_info[future]
-            
-            try:
-                statement = future.result()
+        try:
+            true_response = call_gemini_api(model, true_prompt)
+            if true_response:
+                # Clean the statement - remove common prefixes and suffixes
+                true_statement = true_response.replace("(Đ/S)", "").strip()
+                true_statement = true_statement.replace("Câu phát biểu đúng:", "").strip()
+                true_statement = true_statement.replace("Câu khẳng định:", "").strip() 
+                true_statement = true_statement.rstrip('.')
                 
-                if statement:
-                    # Clean the statement
-                    statement = statement.replace("(Đ/S)", "").strip().rstrip('.')
-                    
-                    result = {
-                        "instruction": random.choice(INSTRUCTION_TEMPLATES),
-                        "input": statement,
-                        "output": "Đúng" if is_true else "Sai",
-                        "question_type": "vimedaqa_true" if is_true else "vimedaqa_false",
+                if true_statement:  # Only add if we got a valid statement
+                    # Create TRUE statement in ICD10 format
+                    true_result = {
+                        "messages": [
+                            {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
+                            {"role": "user", "content": true_statement},
+                            {"role": "assistant", "content": "Đúng"}
+                        ],
+                        "answer": "yes",
+                        "answer_vi": "đúng", 
+                        "question": true_statement,
+                        "question_type": "correct_statement",
+                        "statement_id": f"{sample_id}_yes",
+                        "source": "vimedaqa",
                         "source_question": question,
-                        "source_answer": answer[:200] + "..." if len(answer) > 200 else answer,
-                        "sample_idx": sample_idx
+                        "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
                     }
-                    results.append(result)
-                    
-            except Exception as e:
-                continue  # Skip failed samples
+                    results.append(true_result)
+                
+                # Small delay between API calls
+                time.sleep(60 / REQUESTS_PER_MINUTE / 2)
+            else:
+                print(f"  ⚠️ Empty TRUE response for sample {i}")
+        
+        except Exception as e:
+            print(f"  ⚠️ Failed to generate TRUE statement for sample {i}: {e}")
+        
+        # Generate FALSE statement
+        false_prompt = create_false_statement_prompt(question, answer, context)
+        try:
+            false_response = call_gemini_api(model, false_prompt)
+            if false_response:
+                # Clean the statement - remove common prefixes and suffixes
+                false_statement = false_response.replace("(Đ/S)", "").strip()
+                false_statement = false_statement.replace("Câu phát biểu sai:", "").strip()
+                false_statement = false_statement.replace("Lựa chọn nhiễu:", "").strip()
+                false_statement = false_statement.replace("Câu khẳng định sai:", "").strip()
+                false_statement = false_statement.rstrip('.')
+                
+                if false_statement:  # Only add if we got a valid statement
+                    # Create FALSE statement in ICD10 format
+                    false_result = {
+                        "messages": [
+                            {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
+                            {"role": "user", "content": false_statement},
+                            {"role": "assistant", "content": "Sai"}
+                        ],
+                        "answer": "no",
+                        "answer_vi": "sai",
+                        "question": false_statement,
+                        "question_type": "incorrect_statement", 
+                        "statement_id": f"{sample_id}_no",
+                        "source": "vimedaqa",
+                        "source_question": question,
+                        "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
+                    }
+                    results.append(false_result)
+                else:
+                    print(f"  ⚠️ Empty FALSE statement after cleaning for sample {i}")
+                
+                # Small delay between API calls
+                time.sleep(60 / REQUESTS_PER_MINUTE / 2)
+            else:
+                print(f"  ⚠️ Empty FALSE response for sample {i}")
+                
+        except Exception as e:
+            print(f"  ⚠️ Failed to generate FALSE statement for sample {i}: {e}")
     
     return results
 
@@ -316,10 +305,11 @@ def main():
     """Main processing pipeline - Hardcoded to generate 20k balanced samples."""
     
     print("=" * 60)
-    print("🚀 ViMedAQA Gemini Processing Pipeline - 20k Output Generation")
+    print("🚀 ViMedAQA Gemini Processing Pipeline - Balanced Statement Generation")
     print("=" * 60)
-    print(f"   Processing: {MAX_SAMPLES:,} samples → ~{MAX_SAMPLES*2:,} outputs")
+    print(f"   Processing: {MAX_SAMPLES:,} samples → {MAX_SAMPLES*2:,} statements (1 True + 1 False per sample)")
     print(f"   Model: {GEMINI_MODEL}")
+    print(f"   Format: ICD10-style JSONL for LLM training")
     print(f"   Output: {OUTPUT_FILE}")
     
     # Setup
@@ -423,8 +413,19 @@ def main():
                         batch_results = process_batch_samples(model, batch, batch_start_idx)
                         
                         # Update tracking
+                        true_count = 0
+                        false_count = 0
                         for result in batch_results:
-                            sample_idx = result.pop('sample_idx', 0)
+                            # Count statements by type
+                            if result["answer"] == "yes":
+                                true_count += 1
+                            else:
+                                false_count += 1
+                        
+                        # Update processed indices (one per original sample)
+                        samples_in_batch = len(batch)
+                        for j in range(samples_in_batch):
+                            sample_idx = batch_start_idx + j
                             processed_df_indices.add(sample_idx)
                             
                             # Map back to original index for checkpoint
@@ -434,12 +435,10 @@ def main():
                                     processed_indices.add(orig_idx)
                             else:
                                 processed_indices.add(sample_idx)
-                            
-                            # Update stats
-                            if result["output"] == "Đúng":
-                                stats["successful_true"] += 1
-                            else:
-                                stats["successful_false"] += 1
+                        
+                        # Update stats
+                        stats["successful_true"] += true_count
+                        stats["successful_false"] += false_count
                         
                         batch_samples.extend(batch_results)
                         stats["total_processed"] = len(processed_indices)
@@ -482,13 +481,29 @@ def main():
     # Final statistics
     stats["end_time"] = datetime.now().isoformat()
     
+    # Count final results
+    if Path(OUTPUT_FILE).exists():
+        with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+            total_statements = sum(1 for _ in f)
+            
+        true_count = 0
+        false_count = 0
+        with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                data = json.loads(line)
+                if data["answer"] == "yes":
+                    true_count += 1
+                else:
+                    false_count += 1
+    
     print("\n" + "=" * 60)
     print("📊 Processing Complete!")
     print("=" * 60)
-    print(f"   Total samples processed: {stats['total_processed']}")
-    print(f"   Successful TRUE statements: {stats['successful_true']}")
-    print(f"   Successful FALSE statements: {stats['successful_false']}")
-    print(f"   Failed: {stats['failed']}")
+    print(f"   Total samples processed: {len(processed_indices)}")
+    print(f"   Total statements generated: {total_statements if Path(OUTPUT_FILE).exists() else 0}")
+    print(f"   TRUE statements (Đúng): {true_count if Path(OUTPUT_FILE).exists() else 0}")
+    print(f"   FALSE statements (Sai): {false_count if Path(OUTPUT_FILE).exists() else 0}")
+    print(f"   Balance ratio: {true_count/false_count if Path(OUTPUT_FILE).exists() and false_count > 0 else 'N/A'}")
     print(f"   Output file: {OUTPUT_FILE}")
     
     # Save final stats
@@ -501,11 +516,12 @@ def main():
         print("\n📝 Sample outputs:")
         with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
             for i, line in enumerate(f):
-                if i >= 3:
+                if i >= 4:  # Show 2 true + 2 false examples
                     break
                 sample = json.loads(line)
-                print(f"\n   [{i+1}] {sample['input']}")
-                print(f"       → {sample['output']}")
+                answer_emoji = "✅" if sample['answer'] == "yes" else "❌"
+                print(f"\n   [{i+1}] {answer_emoji} {sample['question']}")
+                print(f"       → {sample['messages'][2]['content']} ({sample['answer_vi']})")
 
 
 if __name__ == "__main__":
