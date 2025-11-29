@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-ViMedAQA Gemini Processing Pipeline - One-by-one Processing with Real-time Output
+ViMedAQA Gemini Processing Pipeline - Batch Processing with Real-time Output
 
-Processes ViMedAQA samples sequentially to generate balanced True/False statements
+Processes ViMedAQA samples in batches to generate balanced True/False statements
 for Vietnamese medical QA training. Each sample generates exactly 1 true and 1 false statement.
 
 Output format matches ICD10-style JSONL for consistent LLM training.
 
 Usage:
     1. Make sure .env file exists with GEMINI_API_KEY
-    2. Run: python process_vimedaqa_gemini_v2.py
+    2. Run: python process_vimedaqa_gemini.py
 """
 
 import os
@@ -22,6 +22,9 @@ from pathlib import Path
 from datetime import datetime
 from tqdm import tqdm
 from typing import Optional, Dict, Any, List
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
+import threading
 
 try:
     import google.generativeai as genai
@@ -43,6 +46,8 @@ GEMINI_MODEL = "gemini-2.5-flash"
 MAX_RETRIES = 1
 RETRY_DELAY = 0.5
 REQUESTS_PER_MINUTE = 2000
+BATCH_SIZE = 10  # Process samples in batches
+MAX_CONCURRENT = 5  # Max concurrent API calls
 
 INPUT_PARQUET = "train-00000-of-00001.parquet"
 OUTPUT_FILE = "vimedaqa_yesno_train.jsonl"
@@ -134,6 +139,105 @@ def call_gemini_api(
     return None
 
 
+def process_single_sample(args):
+    """Process a single sample - used for batch processing."""
+    model, df_idx, question, answer, sample_id = args
+    
+    results = {
+        'df_idx': df_idx,
+        'sample_id': sample_id,
+        'true_sample': None,
+        'false_sample': None,
+        'true_success': False,
+        'false_success': False
+    }
+    
+    try:
+        # TRUE statement
+        true_prompt = create_statement_prompt(question, answer)
+        true_response = call_gemini_api(model, true_prompt)
+        
+        if true_response:
+            true_statement = true_response.replace("(Đ/S)", "").strip().rstrip('.')
+            results['true_sample'] = {
+                "messages": [
+                    {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
+                    {"role": "user", "content": true_statement},
+                    {"role": "assistant", "content": "Đúng"}
+                ],
+                "answer": "yes",
+                "answer_vi": "đúng", 
+                "question": true_statement,
+                "question_type": "correct_statement",
+                "statement_id": f"{sample_id}_yes",
+                "source": "vimedaqa",
+                "source_question": question,
+                "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
+            }
+            results['true_success'] = True
+        
+        # Rate limiting
+        time.sleep(60 / REQUESTS_PER_MINUTE)
+        
+        # FALSE statement
+        false_prompt = create_false_statement_prompt(question, answer)
+        false_response = call_gemini_api(model, false_prompt)
+        
+        if false_response:
+            false_statement = false_response.replace("(Đ/S)", "").strip().rstrip('.')
+            # Clean common prefixes
+            for prefix in ["Câu phát biểu sai:", "Lựa chọn nhiễu:", "Câu khẳng định sai:", "Câu khẳng định SAI:"]:
+                if false_statement.startswith(prefix):
+                    false_statement = false_statement[len(prefix):].strip()
+            
+            if false_statement:
+                results['false_sample'] = {
+                    "messages": [
+                        {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
+                        {"role": "user", "content": false_statement},
+                        {"role": "assistant", "content": "Sai"}
+                    ],
+                    "answer": "no",
+                    "answer_vi": "sai",
+                    "question": false_statement,
+                    "question_type": "incorrect_statement", 
+                    "statement_id": f"{sample_id}_no",
+                    "source": "vimedaqa",
+                    "source_question": question,
+                    "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
+                }
+                results['false_success'] = True
+        
+        # Rate limiting
+        time.sleep(60 / REQUESTS_PER_MINUTE)
+        
+    except Exception as e:
+        print(f"\n   ❌ Error processing sample {df_idx}: {e}")
+    
+    return results
+
+
+def process_batch(model, batch_data):
+    """Process a batch of samples using ThreadPoolExecutor."""
+    batch_args = []
+    for df_idx, row in batch_data:
+        question = str(row.get('question', '')).strip()
+        answer = str(row.get('answer', '')).strip()
+        
+        if question and answer:
+            sample_id = f"vimedaqa_{df_idx}"
+            batch_args.append((model, df_idx, question, answer, sample_id))
+    
+    if not batch_args:
+        return []
+    
+    # Use ThreadPoolExecutor for concurrent processing
+    with ThreadPoolExecutor(max_workers=min(MAX_CONCURRENT, len(batch_args))) as executor:
+        results = list(executor.map(process_single_sample, batch_args))
+    
+    return results
+
+
 def load_checkpoint() -> Dict[str, Any]:
     """Load processing checkpoint if exists."""
     if Path(CHECKPOINT_FILE).exists():
@@ -168,9 +272,9 @@ def main():
     """Main processing pipeline."""
     
     print("=" * 70)
-    print("🚀 ViMedAQA Gemini Processing Pipeline - One-by-One Processing")
+    print("🚀 ViMedAQA Gemini Processing Pipeline - Batch Processing")
     print("=" * 70)
-    print(f"   Mode: Sequential processing with real-time output")
+    print(f"   Mode: Batch processing with {BATCH_SIZE} samples per batch, {MAX_CONCURRENT} concurrent workers")
     print(f"   Processing: {MAX_SAMPLES:,} samples → {MAX_SAMPLES*2:,} statements (1 True + 1 False per sample)")
     print(f"   Model: {GEMINI_MODEL}")
     print(f"   Format: ICD10-style JSONL for LLM training")
@@ -227,7 +331,7 @@ def main():
         print(f"   📦 Backed up existing file to {backup_name}")
     
     # Processing
-    print(f"\n🔄 Processing samples one by one with real-time output...")
+    print(f"\n🔄 Processing samples in batches of {BATCH_SIZE} with {MAX_CONCURRENT} concurrent workers...")
     print("-" * 70)
     
     stats = {
@@ -245,110 +349,75 @@ def main():
                 processed_df_indices.add(df_idx)
     
     try:
+        # Process in batches
+        total_batches = (len(df) + BATCH_SIZE - 1) // BATCH_SIZE
+        
         with tqdm(total=len(df), desc="Total progress", unit="sample", initial=len(processed_df_indices)) as pbar:
             
-            for df_idx, row in df.iterrows():
-                # Skip already processed
-                if df_idx in processed_df_indices:
-                    pbar.update(1)
-                    continue
+            for batch_idx in range(total_batches):
+                start_idx = batch_idx * BATCH_SIZE
+                end_idx = min(start_idx + BATCH_SIZE, len(df))
                 
-                question = str(row.get('question', '')).strip()
-                answer = str(row.get('answer', '')).strip()
-                
-                if not question or not answer:
-                    print(f"\n   ⏭️  Sample {df_idx}: Skipped (missing data)")
-                    pbar.update(1)
-                    continue
-                
-                sample_id = f"vimedaqa_{df_idx}"
-                print(f"\n   📝 Sample {df_idx}: {question[:50]}..." if len(question) > 50 else f"\n   📝 Sample {df_idx}: {question}")
-                
-                # TRUE statement
-                print(f"      🟢 TRUE:  ", end="", flush=True)
-                true_prompt = create_statement_prompt(question, answer)
-                true_response = call_gemini_api(model, true_prompt)
-                
-                if true_response:
-                    true_statement = true_response.replace("(Đ/S)", "").strip().rstrip('.')
-                    true_sample = {
-                        "messages": [
-                            {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
-                            {"role": "user", "content": true_statement},
-                            {"role": "assistant", "content": "Đúng"}
-                        ],
-                        "answer": "yes",
-                        "answer_vi": "đúng", 
-                        "question": true_statement,
-                        "question_type": "correct_statement",
-                        "statement_id": f"{sample_id}_yes",
-                        "source": "vimedaqa",
-                        "source_question": question,
-                        "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
-                    }
-                    save_sample(true_sample, OUTPUT_FILE)
-                    stats["successful_true"] += 1
-                    print("✅")
-                    time.sleep(60 / REQUESTS_PER_MINUTE)
-                else:
-                    print("❌ (no response)")
-                    stats["failed"] += 1
-                
-                # FALSE statement
-                print(f"      🔴 FALSE: ", end="", flush=True)
-                false_prompt = create_false_statement_prompt(question, answer)
-                false_response = call_gemini_api(model, false_prompt)
-                
-                if false_response:
-                    false_statement = false_response.replace("(Đ/S)", "").strip().rstrip('.')
-                    # Clean common prefixes
-                    for prefix in ["Câu phát biểu sai:", "Lựa chọn nhiễu:", "Câu khẳng định sai:", "Câu khẳng định SAI:"]:
-                        if false_statement.startswith(prefix):
-                            false_statement = false_statement[len(prefix):].strip()
+                # Prepare batch data
+                batch_data = []
+                for df_idx in range(start_idx, end_idx):
+                    if df_idx in processed_df_indices:
+                        continue
                     
-                    if false_statement:
-                        false_sample = {
-                            "messages": [
-                                {"role": "system", "content": "Trợ lý AI Y tế. Chỉ trả lời: Đúng hoặc Sai."},
-                                {"role": "user", "content": false_statement},
-                                {"role": "assistant", "content": "Sai"}
-                            ],
-                            "answer": "no",
-                            "answer_vi": "sai",
-                            "question": false_statement,
-                            "question_type": "incorrect_statement", 
-                            "statement_id": f"{sample_id}_no",
-                            "source": "vimedaqa",
-                            "source_question": question,
-                            "source_answer": answer[:200] + "..." if len(answer) > 200 else answer
-                        }
-                        save_sample(false_sample, OUTPUT_FILE)
-                        stats["successful_false"] += 1
-                        print("✅")
+                    if df_idx < len(df):
+                        row = df.iloc[df_idx]
+                        batch_data.append((df_idx, row))
+                
+                if not batch_data:
+                    # Skip empty batch
+                    pbar.update(end_idx - start_idx)
+                    continue
+                
+                print(f"\n📦 Processing batch {batch_idx + 1}/{total_batches} ({len(batch_data)} samples)...")
+                
+                # Process batch
+                batch_results = process_batch(model, batch_data)
+                
+                # Save results and update stats
+                for result in batch_results:
+                    df_idx = result['df_idx']
+                    
+                    # Save TRUE sample
+                    if result['true_success'] and result['true_sample']:
+                        save_sample(result['true_sample'], OUTPUT_FILE)
+                        stats["successful_true"] += 1
+                        print(f"   ✅ Sample {df_idx}: TRUE statement saved")
                     else:
-                        print("❌ (empty after cleaning)")
                         stats["failed"] += 1
-                    time.sleep(60 / REQUESTS_PER_MINUTE)
-                else:
-                    print("❌ (no response)")
-                    stats["failed"] += 1
+                        print(f"   ❌ Sample {df_idx}: TRUE statement failed")
+                    
+                    # Save FALSE sample  
+                    if result['false_success'] and result['false_sample']:
+                        save_sample(result['false_sample'], OUTPUT_FILE)
+                        stats["successful_false"] += 1
+                        print(f"   ✅ Sample {df_idx}: FALSE statement saved")
+                    else:
+                        stats["failed"] += 1
+                        print(f"   ❌ Sample {df_idx}: FALSE statement failed")
+                    
+                    # Update processed indices
+                    processed_df_indices.add(df_idx)
+                    if "sampled_indices" in checkpoint and checkpoint["sampled_indices"]:
+                        if df_idx < len(checkpoint["sampled_indices"]):
+                            orig_idx = checkpoint["sampled_indices"][df_idx]
+                            processed_indices.add(orig_idx)
+                    else:
+                        processed_indices.add(df_idx)
                 
-                # Update checkpoint
-                processed_df_indices.add(df_idx)
-                if "sampled_indices" in checkpoint and checkpoint["sampled_indices"]:
-                    if df_idx < len(checkpoint["sampled_indices"]):
-                        orig_idx = checkpoint["sampled_indices"][df_idx]
-                        processed_indices.add(orig_idx)
-                else:
-                    processed_indices.add(df_idx)
+                # Update progress
+                pbar.update(len(batch_data))
                 
+                # Update checkpoint after each batch
                 stats["total_processed"] = len(processed_indices)
                 checkpoint["processed_indices"] = list(processed_indices)
-                checkpoint["last_processed"] = df_idx
+                checkpoint["last_processed"] = max([r['df_idx'] for r in batch_results]) if batch_results else -1
                 checkpoint.update(stats)
                 save_checkpoint(checkpoint)
-                
-                pbar.update(1)
     
     except KeyboardInterrupt:
         print("\n\n⚠️ Interrupted! Saving progress...")
