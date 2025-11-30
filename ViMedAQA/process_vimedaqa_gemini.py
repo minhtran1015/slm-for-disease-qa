@@ -34,7 +34,7 @@ except ImportError:
 
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env'))
 except ImportError:
     print("⚠️ python-dotenv not installed. Install with: pip install python-dotenv")
 
@@ -49,10 +49,11 @@ REQUESTS_PER_MINUTE = 1000
 BATCH_SIZE = 10  # Process samples in batches
 MAX_CONCURRENT = 5  # Max concurrent API calls
 
-INPUT_PARQUET = "train-00000-of-00001.parquet"
-OUTPUT_FILE = "vimedaqa_yesno_train.jsonl"
-CHECKPOINT_FILE = "vimedaqa_checkpoint.json"
-STATS_FILE = "vimedaqa_stats.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+INPUT_PARQUET = os.path.join(BASE_DIR, "train-00000-of-00001.parquet")
+OUTPUT_FILE = os.path.join(BASE_DIR, "vimedaqa_yesno_train.jsonl")
+CHECKPOINT_FILE = os.path.join(BASE_DIR, "vimedaqa_checkpoint.json")
+STATS_FILE = os.path.join(BASE_DIR, "vimedaqa_stats.json")
 
 MAX_SAMPLES = 10000   # Test with 50 samples for batch processing validation
 
@@ -134,9 +135,121 @@ def call_gemini_api(
                 
         except Exception as e:
             if attempt < retries:
+                print(f"   ⚠️ API Error (Attempt {attempt+1}/{retries+1}): {e}")
                 time.sleep(RETRY_DELAY)
     
     return None
+
+
+def reconcile_checkpoint(checkpoint: Dict[str, Any], output_file: str):
+    """Reconcile checkpoint processed_indices with actual output file.
+    
+    Only marks samples as processed if BOTH true and false statements exist.
+    """
+    if not Path(output_file).exists():
+        return checkpoint
+        
+    print("   🔍 Reconciling checkpoint with output file...")
+    
+    # Track true and false statements separately
+    samples_with_true = set()
+    samples_with_false = set()
+    
+    try:
+        with open(output_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    data = json.loads(line)
+                    # statement_id format: "vimedaqa_{df_idx}_yes" or "vimedaqa_{df_idx}_no"
+                    stmt_id = data.get("statement_id", "")
+                    if stmt_id.startswith("vimedaqa_"):
+                        parts = stmt_id.split("_")
+                        if len(parts) >= 3 and parts[1].isdigit():
+                            df_idx = int(parts[1])
+                            stmt_type = parts[2]  # 'yes' or 'no'
+                            
+                            if stmt_type == "yes":
+                                samples_with_true.add(df_idx)
+                            elif stmt_type == "no":
+                                samples_with_false.add(df_idx)
+                except:
+                    continue
+    except Exception as e:
+        print(f"   ⚠️ Error reading output file: {e}")
+        return checkpoint
+    
+    # Only samples with BOTH statements are truly processed
+    complete_samples = samples_with_true & samples_with_false
+    incomplete_samples = (samples_with_true | samples_with_false) - complete_samples
+    
+    # Report details
+    total_statements = len(samples_with_true) + len(samples_with_false)
+    print(f"      Total statements in output: {total_statements}")
+    print(f"      Complete samples (both statements): {len(complete_samples)}")
+    if incomplete_samples:
+        print(f"      ⚠️ Incomplete samples (only one statement): {len(incomplete_samples)}")
+        
+    # Reconstruct processed_indices based on complete samples only
+    new_processed_indices = set()
+    if "sampled_indices" in checkpoint and checkpoint["sampled_indices"]:
+        sampled = checkpoint["sampled_indices"]
+        for df_idx in complete_samples:
+            if df_idx < len(sampled):
+                new_processed_indices.add(sampled[df_idx])
+    else:
+        new_processed_indices = complete_samples
+        
+    old_count = len(checkpoint.get("processed_indices", []))
+    new_count = len(new_processed_indices)
+    
+    if old_count != new_count:
+        print(f"   ♻️ Reconciled: {old_count} -> {new_count} processed samples")
+        checkpoint["processed_indices"] = list(new_processed_indices)
+        save_checkpoint(checkpoint)
+        
+    return checkpoint
+
+
+def get_complete_samples_from_output(output_file: str, max_samples: Optional[int] = None) -> tuple:
+    """Get set of df_idx that have both yes and no statements in the output file.
+    Returns (complete_samples_set, total_statements_count)
+    """
+    complete = set()
+    if not Path(output_file).exists():
+        return complete, 0
+    
+    samples_with_true = set()
+    samples_with_false = set()
+    total_statements = 0
+    
+    try:
+        with open(output_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    data = json.loads(line)
+                    stmt_id = data.get("statement_id", "")
+                    if stmt_id.startswith("vimedaqa_"):
+                        parts = stmt_id.split("_")
+                        if len(parts) >= 3 and parts[1].isdigit():
+                            df_idx = int(parts[1])
+                            # Only count samples within our processing range
+                            if max_samples is None or df_idx < max_samples:
+                                stmt_type = parts[2]
+                                if stmt_type == "yes":
+                                    samples_with_true.add(df_idx)
+                                elif stmt_type == "no":
+                                    samples_with_false.add(df_idx)
+                                total_statements += 1
+                except json.JSONDecodeError:
+                    continue
+    except Exception as e:
+        print(f"   ⚠️ Error reading output file for calibration: {e}")
+        return complete, 0
+    
+    complete = samples_with_true & samples_with_false
+    print(f"   🔍 Found {len(complete)} complete samples, {total_statements} total statements in output file")
+    print(f"   📊 Breakdown: {len(samples_with_true)} yes statements, {len(samples_with_false)} no statements")
+    return complete, total_statements
 
 
 def process_single_sample(args):
@@ -273,6 +386,7 @@ def main():
     
     print("=" * 70)
     print("🚀 ViMedAQA Gemini Processing Pipeline - Batch Processing")
+    print("   🔧 With Checkpoint Calibration")
     print("=" * 70)
     print(f"   Mode: Batch processing with {BATCH_SIZE} samples per batch, {MAX_CONCURRENT} concurrent workers")
     print(f"   Processing: {MAX_SAMPLES:,} samples → {MAX_SAMPLES*2:,} statements (1 True + 1 False per sample)")
@@ -299,12 +413,46 @@ def main():
         print(f"   ❌ Failed to load parquet: {e}")
         return
     
-    # Load checkpoint
+    # Load checkpoint - handle both old and new format
     checkpoint = load_checkpoint()
-    processed_indices = set(checkpoint.get("processed_indices", []))
     
-    if processed_indices:
-        print(f"   📍 Resuming from checkpoint: {len(processed_indices)} already processed")
+    # Use new df_indices format if available, fallback to legacy format
+    if "processed_df_indices" in checkpoint:
+        processed_count = len(checkpoint["processed_df_indices"])
+        print(f"   📍 Resuming from checkpoint: {processed_count} samples already processed (using df_indices)")
+    else:
+        processed_indices = set(checkpoint.get("processed_indices", []))
+        processed_count = len(processed_indices)
+        if processed_count > 0:
+            print(f"   📍 Resuming from legacy checkpoint: {processed_count} samples (will recalibrate)")
+
+    # Skip old reconcile_checkpoint - we'll do full calibration below
+
+    # Calibrate with actual output file
+    print("   🔧 Calibrating with output file...")
+    complete_df_indices, total_statements = get_complete_samples_from_output(OUTPUT_FILE, MAX_SAMPLES)
+    
+    # Store df_indices directly (0-9999) instead of original indices
+    # This makes the checkpoint much cleaner and easier to understand
+    calibrated_processed = complete_df_indices.copy()
+    
+    # Always update to calibrated state - use df_indices directly
+    if calibrated_processed != set(checkpoint.get("processed_df_indices", [])):
+        old_count = len(checkpoint.get("processed_df_indices", []))
+        print(f"   ♻️ Calibrated processed df_indices: {old_count} -> {len(calibrated_processed)}")
+        if old_count > len(calibrated_processed):
+            print(f"   📝 Removing {old_count - len(calibrated_processed)} incomplete samples from checkpoint")
+        checkpoint["processed_df_indices"] = list(calibrated_processed)
+        
+        # Keep legacy processed_indices for compatibility but mark as deprecated
+        checkpoint["processed_indices"] = []  # Clear the confusing large indices
+        checkpoint["_note"] = "processed_df_indices contains 0-9999 range, processed_indices is deprecated"
+        
+        save_checkpoint(checkpoint)
+    
+    print(f"   ✅ Calibration complete: {len(complete_df_indices)} samples ready to continue")
+
+
     
     # Random sampling
     if MAX_SAMPLES < len(df):
@@ -324,8 +472,8 @@ def main():
         df = df.head(MAX_SAMPLES)
         print(f"   🎯 Using {len(df):,} samples")
     
-    # Initialize output file
-    if not processed_indices and Path(OUTPUT_FILE).exists():
+    # Initialize output file - backup if starting fresh
+    if len(complete_df_indices) == 0 and Path(OUTPUT_FILE).exists():
         backup_name = f"{OUTPUT_FILE}.backup.{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         Path(OUTPUT_FILE).rename(backup_name)
         print(f"   📦 Backed up existing file to {backup_name}")
@@ -335,18 +483,18 @@ def main():
     print("-" * 70)
     
     stats = {
-        "total_processed": len(processed_indices),
+        "total_processed": len(complete_df_indices),
         "successful_true": 0,
         "successful_false": 0,
         "failed": 0,
         "start_time": datetime.now().isoformat(),
     }
     
-    processed_df_indices = set()
-    if "sampled_indices" in checkpoint and checkpoint["sampled_indices"]:
-        for df_idx, orig_idx in enumerate(checkpoint["sampled_indices"]):
-            if orig_idx in processed_indices:
-                processed_df_indices.add(df_idx)
+    # Use calibrated complete samples (already validated to be < MAX_SAMPLES)
+    processed_df_indices = complete_df_indices.copy()
+    
+    print(f"   📊 Progress validation: {len(processed_df_indices)}/{MAX_SAMPLES} samples completed")
+    print(f"   📋 Sample range: {min(processed_df_indices) if processed_df_indices else 'N/A'} to {max(processed_df_indices) if processed_df_indices else 'N/A'}")
     
     try:
         # Process in batches
@@ -358,92 +506,103 @@ def main():
                 start_idx = batch_idx * BATCH_SIZE
                 end_idx = min(start_idx + BATCH_SIZE, len(df))
                 
-                # Prepare batch data
+                # Prepare batch data - only unprocessed samples
                 batch_data = []
+                
                 for df_idx in range(start_idx, end_idx):
-                    if df_idx in processed_df_indices:
-                        continue
-                    
-                    if df_idx < len(df):
+                    if df_idx < len(df) and df_idx not in processed_df_indices:
+                        # Needs processing
                         row = df.iloc[df_idx]
                         batch_data.append((df_idx, row))
                 
                 if not batch_data:
-                    # Skip empty batch
-                    pbar.update(end_idx - start_idx)
+                    # Skip batch if all samples already processed
                     continue
                 
                 # Silent processing to avoid terminal spam
                 
-                # Process batch
-                batch_results = process_batch(model, batch_data)
+                # Process batch (only unprocessed samples)
+                if len(batch_data) > 0:
+                    batch_results = process_batch(model, batch_data)
+                else:
+                    batch_results = []
                 
                 # Save results and update stats
                 for result in batch_results:
                     df_idx = result['df_idx']
                     
-                    # Save TRUE sample
-                    if result['true_success'] and result['true_sample']:
+                    # Check if BOTH are successful - All or Nothing
+                    if (result['true_success'] and result['true_sample'] and 
+                        result['false_success'] and result['false_sample']):
+                        
+                        # Save TRUE sample
                         save_sample(result['true_sample'], OUTPUT_FILE)
                         stats["successful_true"] += 1
-                        # TRUE statement saved silently
-                    else:
-                        stats["failed"] += 1
-                        print(f"   ❌ Sample {df_idx}: TRUE statement failed")
-                    
-                    # Save FALSE sample  
-                    if result['false_success'] and result['false_sample']:
+                        
+                        # Save FALSE sample  
                         save_sample(result['false_sample'], OUTPUT_FILE)
                         stats["successful_false"] += 1
-                        # FALSE statement saved silently
+                        
+                        # Update processed indices (use df_idx directly)
+                        processed_df_indices.add(df_idx)
+                            
                     else:
                         stats["failed"] += 1
-                        print(f"   ❌ Sample {df_idx}: FALSE statement failed")
-                    
-                    # Update processed indices
-                    processed_df_indices.add(df_idx)
-                    if "sampled_indices" in checkpoint and checkpoint["sampled_indices"]:
-                        if df_idx < len(checkpoint["sampled_indices"]):
-                            orig_idx = checkpoint["sampled_indices"][df_idx]
-                            processed_indices.add(orig_idx)
-                    else:
-                        processed_indices.add(df_idx)
+                        print(f"   ❌ Sample {df_idx}: Failed to generate both statements. Skipping.")
                 
-                # Update progress
-                pbar.update(len(batch_data))
+                # Update progress for newly processed samples only
+                newly_processed = sum(1 for result in batch_results 
+                                    if result['true_success'] and result['false_success'])
+                pbar.update(newly_processed)
                 
                 # Update checkpoint after each batch
-                stats["total_processed"] = len(processed_indices)
-                checkpoint["processed_indices"] = list(processed_indices)
+                stats["total_processed"] = len(processed_df_indices)
+                checkpoint["processed_df_indices"] = list(processed_df_indices)
+                checkpoint["processed_indices"] = []  # Keep empty for compatibility
                 checkpoint["last_processed"] = max([r['df_idx'] for r in batch_results]) if batch_results else -1
                 checkpoint.update(stats)
                 save_checkpoint(checkpoint)
     
     except KeyboardInterrupt:
         print("\n\n⚠️ Interrupted! Saving progress...")
-        checkpoint["processed_indices"] = list(processed_indices)
+        # Recalibrate processed indices from output file
+        current_complete, _ = get_complete_samples_from_output(OUTPUT_FILE, MAX_SAMPLES)
+        checkpoint["processed_df_indices"] = list(current_complete)
+        checkpoint["processed_indices"] = []  # Clear legacy indices
+        checkpoint["total_processed"] = len(current_complete)
         checkpoint.update(stats)
         save_checkpoint(checkpoint)
         print("   ✅ Progress saved. Run again to resume.")
         return
     
-    # Final statistics
+    # Final statistics - recount from actual output file
+    final_complete, final_total_statements = get_complete_samples_from_output(OUTPUT_FILE, MAX_SAMPLES)
+    final_true_count = len(final_complete)  # Each complete sample has one true
+    final_false_count = len(final_complete)  # Each complete sample has one false
+    
     stats["end_time"] = datetime.now().isoformat()
     
     print("\n" + "=" * 70)
     print("📊 Processing Complete!")
     print("=" * 70)
-    print(f"   Total samples processed: {stats['total_processed']}")
-    print(f"   TRUE statements (✅): {stats['successful_true']}")
-    print(f"   FALSE statements (❌): {stats['successful_false']}")
-    print(f"   Failed: {stats['failed']}")
-    print(f"   Total statements: {stats['successful_true'] + stats['successful_false']}")
+    print(f"   Total complete samples: {len(final_complete)}")
+    print(f"   TRUE statements (✅): {final_true_count}")
+    print(f"   FALSE statements (❌): {final_false_count}")
+    print(f"   Total statements: {final_true_count + final_false_count}")
     if Path(OUTPUT_FILE).exists():
         print(f"   Output file: {OUTPUT_FILE} ({Path(OUTPUT_FILE).stat().st_size / 1024:.1f} KB)")
     
     # Save final stats
+    final_stats = {
+        "total_complete_samples": len(final_complete),
+        "successful_true": final_true_count,
+        "successful_false": final_false_count,
+        "total_statements": final_true_count + final_false_count,
+        "start_time": stats.get("start_time"),
+        "end_time": stats["end_time"]
+    }
     with open(STATS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(stats, f, ensure_ascii=False, indent=2)
+        json.dump(final_stats, f, ensure_ascii=False, indent=2)
     print(f"   Stats saved to: {STATS_FILE}")
     
     # Show sample output
