@@ -19,6 +19,9 @@ from pathlib import Path
 
 OUTPUT_DIR = "../train_data"
 
+# Standardized instruction prefix (matching train.jsonl format)
+INSTRUCTION_PREFIX = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
+
 # CSV files to process
 CSV_FILES = [
     ("../data/dev_v0.5.csv", "val.jsonl"),
@@ -60,10 +63,13 @@ def process_csv(csv_path, output_jsonl_path):
                 # Normalize answer
                 final_answer = normalize_answer(answer_str)
                 
+                # Add standardized instruction prefix to question
+                full_question = INSTRUCTION_PREFIX + question
+                
                 # Create Gemma chat format entry
                 entry = {
                     "messages": [
-                        {"role": "user", "content": question},
+                        {"role": "user", "content": full_question},
                         {"role": "model", "content": final_answer}
                     ]
                 }
