@@ -63,17 +63,8 @@ TEMPLATES_FALSE = [
     "{child_vi} ({child_en}) được xếp vào loại {fake_parent_vi} ({fake_parent_en}) phải không?",
 ]
 
-# Multiple instruction templates for variety
-INSTRUCTIONS = [
-    "Dựa trên kiến thức triệu chứng y học, trả lời Đúng hoặc Sai.",
-    "Hãy cho biết câu sau đúng hay sai dựa vào kiến thức y khoa.",
-    "Xác định tính đúng sai của nhận định sau về triệu chứng y học.",
-    "Trả lời Đúng hoặc Sai cho câu hỏi y khoa sau.",
-    "Dựa vào phân loại triệu chứng y học, hãy trả lời Đúng hoặc Sai.",
-    "Với kiến thức về bệnh học, hãy xác nhận câu sau Đúng hay Sai.",
-    "Câu hỏi về mối quan hệ triệu chứng - Trả lời Đúng hoặc Sai.",
-    "Theo hệ thống phân loại y khoa, câu sau Đúng hay Sai?",
-]
+# STANDARDIZED instruction prefix - enforces consistent instruction following
+STANDARD_INSTRUCTION_PREFIX = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
 
 
 @dataclass
@@ -219,17 +210,16 @@ class BilingualTranslator:
             child_vi = translation_map.get(child_en, child_en)
             parent_vi = translation_map.get(parent_en, parent_en)
             
-            # 1. Generate TRUE sample with random instruction
+            # 1. Generate TRUE sample with STANDARDIZED instruction prefix
             template = random.choice(TEMPLATES_TRUE)
-            instruction = random.choice(INSTRUCTIONS)
             question = template.format(
                 child_vi=child_vi, child_en=child_en,
                 parent_vi=parent_vi, parent_en=parent_en
             )
             
             true_samples.append({
-                "instruction": instruction,
-                "input": question,
+                "instruction": STANDARD_INSTRUCTION_PREFIX + question,
+                "input": "",
                 "output": "Đúng",
                 "question_type": "true_relationship",
                 "child_en": child_en,
@@ -238,7 +228,7 @@ class BilingualTranslator:
                 "parent_vi": parent_vi
             })
             
-            # 2. Generate FALSE sample with random fake parent and instruction
+            # 2. Generate FALSE sample with random fake parent and STANDARDIZED instruction prefix
             fake_parent_en = random.choice(fake_parent_pool)
             while fake_parent_en == parent_en or fake_parent_en == child_en:
                 fake_parent_en = random.choice(fake_parent_pool)
@@ -246,15 +236,14 @@ class BilingualTranslator:
             fake_parent_vi = translation_map.get(fake_parent_en, fake_parent_en)
             
             template_false = random.choice(TEMPLATES_FALSE)
-            instruction_false = random.choice(INSTRUCTIONS)
             question_false = template_false.format(
                 child_vi=child_vi, child_en=child_en,
                 fake_parent_vi=fake_parent_vi, fake_parent_en=fake_parent_en
             )
             
             false_samples.append({
-                "instruction": instruction_false,
-                "input": question_false,
+                "instruction": STANDARD_INSTRUCTION_PREFIX + question_false,
+                "input": "",
                 "output": "Sai",
                 "question_type": "false_relationship",
                 "child_en": child_en,

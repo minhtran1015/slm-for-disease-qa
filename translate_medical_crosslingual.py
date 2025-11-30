@@ -28,17 +28,8 @@ image = (
 
 volume = modal.Volume.from_name("medical-data", create_if_missing=True)
 
-# Vietnamese instruction templates for CLTL
-CLTL_INSTRUCTIONS = [
-    "Dựa vào bối cảnh y khoa quốc tế, hãy trả lời câu hỏi bằng tiếng Việt. Trả lời Đúng hoặc Sai.",
-    "Sử dụng kiến thức y học chuẩn quốc tế để trả lời câu hỏi tiếng Việt. Chỉ trả lời Đúng hoặc Sai.",
-    "Phân tích thông tin y khoa từ tài liệu quốc tế và trả lời câu hỏi tiếng Việt bằng Đúng hoặc Sai.",
-    "Dựa trên bằng chứng y khoa quốc tế, đánh giá câu hỏi tiếng Việt và trả lời Đúng hoặc Sai.",
-    "Áp dụng kiến thức y học chuẩn quốc tế để trả lời câu hỏi tiếng Việt. Trả lời Đúng hoặc Sai.",
-    "Chuyển giao tri thức y khoa quốc tế sang tư duy tiếng Việt. Trả lời Đúng hoặc Sai.",
-    "Sử dụng cơ sở dữ liệu y khoa quốc tế để phân tích và trả lời câu hỏi tiếng Việt bằng Đúng hoặc Sai.",
-    "Kết hợp kiến thức y học quốc tế với ngôn ngữ Việt Nam để trả lời. Chọn Đúng hoặc Sai."
-]
+# Vietnamese instruction with STANDARDIZED prefix for CLTL
+STANDARD_CLTL_INSTRUCTION_PREFIX = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
 
 @app.function(image=image, gpu="A10G", timeout=1800, retries=3)
 async def translate_cltl_batch(
@@ -239,15 +230,17 @@ def create_cltl_format(
     original_data: Dict[str, Any]
 ) -> Dict[str, Any]:
     """
-    Create Cross-Lingual Transfer Learning format
+    Create Cross-Lingual Transfer Learning format with STANDARDIZED instruction prefix
     
-    Formats data for bilingual medical knowledge transfer
+    Formats data for bilingual medical knowledge transfer with consistent instruction format.
+    Question is prepended with standardized prefix in instruction field.
+    Input field is empty to force model to follow instructions explicitly.
     """
     
-    # Base CLTL format
+    # Base CLTL format with STANDARDIZED instruction prefix
     cltl_sample = {
-        "instruction": instruction,
-        "input": vietnamese_question,
+        "instruction": STANDARD_CLTL_INSTRUCTION_PREFIX + vietnamese_question,
+        "input": "",
         "output": vietnamese_answer,
         
         # Cross-lingual context preservation

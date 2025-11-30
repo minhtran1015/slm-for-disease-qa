@@ -1,0 +1,623 @@
+{"messages": [{"role": "user", "content": "Trong chốc loét, nếu tổn thương liền lại, nó không để lại sẹo xấu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc xét nghiệm soi đờm trực tiếp thấy có vi khuẩn lao (AFB+) là tiêu chuẩn để chẩn đoán xác định một người mắc bệnh lao phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cao huyết áp hậu sản là một tình trạng chỉ là vô căn (không rõ nguyên nhân) và không gây biến chứng nguy hiểm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ chỉ xảy ra ở người trẻ tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở trẻ em biếng ăn, nên cho ăn vặt và uống đồ ngọt giữa các bữa ăn để bổ sung năng lượng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thiếu máu do hóa trị liệu chống ung thư được xếp vào nhóm Thiếu máu khác (D64)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Người ta không thể mắc bệnh bụi phổi silic nếu đã ngừng làm việc tại môi trường có nhiều bụi silic."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm phổi là một trong những nguyên nhân gây tử vong do suy đa tạng ở trẻ bị bệnh não thiếu oxy thiếu máu cục bộ (HIE) nặng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Teo mật bẩm sinh có thể được gián tiếp đánh giá qua siêu âm, với dấu hiệu túi mật nhỏ và thành dày."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp không có nguy cơ dẫn đến tình trạng tàn tật nếu không được xử lý kịp thời."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các bệnh về máu chỉ liên quan đến rối loạn hồng cầu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Chốc loét là một dạng nhiễm trùng da sâu, xâm lấn xuống trung bì và khi lành sẽ để lại sẹo xấu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh phổi tắc nghẽn mạn tính (COPD) là bệnh hô hấp không lây nhiễm đặc trưng bởi tắc nghẽn đường thở do phản ứng viêm mạn tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh ghẻ là một bệnh nhiễm trùng do vi khuẩn và được điều trị bằng kháng sinh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong ngộ độc kim loại nặng cấp tính, các triệu chứng thường đến chậm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp có thể tiến triển nhanh chóng, gây ra vấn đề vận động nghiêm trọng, thậm chí dẫn đến tình trạng tàn tật."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp trẻ biếng ăn, năng lượng ăn vào đạt được từ 70-90% nhu cầu theo khuyến nghị được phân loại là biếng ăn nặng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Băng huyết sau sinh hay gặp ở phụ nữ sinh con nhiều lần hoặc nạo thai nhiều lần."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mô liên kết hỗn hợp được chẩn đoán dễ dàng vì nó có một bộ triệu chứng lâm sàng duy nhất và dễ phân biệt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các biện pháp như châm cứu và kích thích thần kinh qua da (TENS) không được sử dụng để điều trị các bệnh cơ xương khớp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh tự miễn chỉ gây tổn thương tại các khớp, không ảnh hưởng đến các cơ quan ngoài khớp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm loét dạ dày không bao giờ cần điều trị phẫu thuật."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hệ thống miễn dịch thích ứng (Adaptive immune system) bao gồm các tế bào đại thực bào và tế bào tua."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rung nhĩ thường gặp với những cơn nhịp nhanh kèm suy tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hội chứng Felty là một biến chứng của viêm khớp dạng thấp, đặc trưng bởi giảm bạch cầu hạt, lách to và nhiễm trùng tái phát."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ghẻ là một bệnh nhiễm trùng do vi khuẩn và được điều trị bằng kháng sinh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hầu hết các bệnh nhân (trên 90%) viêm màng não mủ đều có nghe kém kiểu dẫn truyền ở mức độ nhẹ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khối u được mô tả là “di căn từ” một vị trí cụ thể thì vị trí đó phải được mã hóa là khối u thứ phát."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hạn chế ăn đồ chiên xào, nhiều dầu mỡ và sô cô la có thể làm trầm trọng thêm triệu chứng ợ nóng của trào ngược dạ dày thực quản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở người bệnh ĐTĐ tuýp 2, biến chứng thần kinh có thể xuất hiện ngay từ lúc chẩn đoán bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong viêm não, tiêu chuẩn chính để chẩn đoán là rối loạn tri giác (ngủ gà, lú lẩn, hôn mê) kéo dài dưới 24 giờ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc vận động nhẹ nhàng sau sinh là cần thiết giúp mẹ hồi phục tốt và giảm nguy cơ mắc các biến chứng sau phẫu thuật."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tập thể dục (đi bộ, bơi lội) là cần thiết và hiệu quả đối với những người bị rối loạn lo âu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp là một bệnh lý viêm hệ thống điển hình, nơi việc tìm kiếm các triệu chứng ngoài khớp là cốt yếu để chẩn đoán."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh viêm khớp dạng thấp có thể có các biểu hiện ngoài khớp ảnh hưởng đến các cơ quan khác."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh gan nhiễm mỡ không do rượu không có khả năng tiến triển thành xơ gan."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh ung thư hạch được xếp vào nhóm Bệnh máu, cơ quan tạo máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các bệnh lý về tai và xương chũm có thể gây ra các biến chứng nội sọ nguy hiểm như áp-xe não."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh xơ cứng bì hệ thống tiến triển, bệnh nhân có thể xuất hiện vùng calci hoá dưới da ở đầu ngón."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng của suy giảm miễn dịch nguyên phát bao gồm thời gian nhiễm trùng lâu hơn và điều trị khó khăn hơn so với người có hệ miễn dịch bình thường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tất cả các trường hợp bướu giáp độc đa nhân đều cần được phẫu thuật cắt bỏ toàn bộ tuyến giáp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tổn thương dây thần kinh ngoại biên luôn được mã hóa bằng mã di chứng (G09) làm mã bệnh chính."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp không có xu hướng ảnh hưởng đến khớp khuỷu tay và khớp vai."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Dị tật bẩm sinh (CBDs) là một gánh nặng toàn cầu, mặc dù tỷ lệ chung đang giảm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mệt mỏi kéo dài chỉ là dấu hiệu của căng thẳng, không liên quan đến bệnh lý tim mạch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mất ngủ không do nguyên nhân thực thể là một ví dụ về rối loạn giấc ngủ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong ung thư phổi, tiếng thở khò khè có thể do khối u phát triển bên trong lòng phế quản gây hẹp lòng ống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư tuyến tiền liệt tiến triển có thể gây tiểu khó và tiểu nhiều lần về đêm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rung nhĩ có thể đi kèm với suy tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư dương vật thường liên quan đến nhiễm virus HPV type 16 và 18."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ghẻ là một bệnh lý da liễu có triệu chứng ngứa nhiều nhất về đêm và có thể gây biến chứng nhiễm khuẩn thứ phát."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Khối u tuyến giáp thể không biệt hóa (loạn sản) thường phát triển chậm và có tiên lượng tốt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong điều trị béo phì, khuyến cáo nên hạn chế ăn đồ ăn chứa chất béo bão hòa cho trẻ trên 2 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau cơ xơ hóa đặc trưng bởi đau lan tỏa kéo dài ít nhất 3 tháng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm da cơ địa có thể gây ra rối loạn giấc ngủ và lão hóa da sớm do tổn thương da kéo dài và thói quen gãi cào."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp phì đại tuyến tiền liệt, NTTNDT ở nam giới (15-50 tuổi) thường được coi là không biến chứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Duy trì cân nặng hợp lý là một trong những biện pháp phòng ngừa thoái hóa khớp tốt nhất."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đối với ung thư tuyến giáp biệt hóa, tuổi chẩn đoán dưới 40 tuổi thường có tiên lượng xấu hơn so với trên 40 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn trầm cảm thường xảy ra ở giữa tuổi vị thành niên, 20 tuổi, hoặc 30 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc điều trị trĩ ở phụ nữ sau sinh nên ưu tiên phẫu thuật ngay lập tức để tránh biến chứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong lupus ban đỏ hệ thống, các tổn thương ở cầu thận chỉ được phân loại là cục bộ khi chúng liên quan đến hơn 50% các cuộn mạch cầu thận."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Suy giảm miễn dịch nguyên phát là tình trạng hệ thống miễn dịch hoạt động quá mức, gây ra các bệnh dị ứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các dị tật bẩm sinh liên quan đến cấu trúc của tim như cơ tim, van tim, buồng tim xuất hiện trong quá trình hình thành bào thai."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mẫu nước tiểu được để ở nhiệt độ phòng > 2 giờ có thể mang lại kết quả đếm khuẩn lạc thấp giả tạo."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư biểu mô tế bào vảy dương vật thường xuất phát ở lớp hạ bì của da dương vật."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các dị tật bẩm sinh ở tim là loại dị tật bẩm sinh có tỷ lệ mắc phải cao nhất ở trẻ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đái tháo đường (ĐTĐ) tuýp 2 chủ yếu là do rối loạn tiết insulin, không liên quan đến tình trạng kháng insulin."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá (chủ động và thụ động) làm tăng nguy cơ mắc bệnh viêm khớp dạng thấp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn tâm thần và hành vi nhẹ ở giai đoạn hậu sản được phân loại là rối loạn cảm xúc trầm cảm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Vi khuẩn lao có khả năng tồn tại trong đờm, rác ẩm và tối trong nhiều tuần."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cao huyết áp sau sinh được xác định là mạn tính nếu huyết áp không trở lại bình thường sau 12 tuần."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rung nhĩ là một loại rối loạn nhịp tim thường gặp và có thể đi kèm với suy tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mô liên kết hỗn hợp hiếm khi gây ra mất thính lực, do đó không cần tầm soát biến chứng này."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các triệu chứng tê bì chân tay do thần kinh ngoại biên chỉ xuất hiện ở bệnh nhân ĐTĐ tuýp 1."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong mọi trường hợp, Sequelae (di chứng) của bệnh viêm hệ thần kinh trung ương (G09) phải được sử dụng làm mã bệnh chính (Main condition)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh phổi tắc nghẽn mạn tính thường đi kèm với các bệnh lý khác như bệnh tim mạch và trào ngược dạ dày thực quản (GERD)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Lác (lé) là một trong những bệnh lý về mắt thường gặp ở trẻ em."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phù gai thị (sưng phía sau mắt) là triệu chứng không liên quan đến biến chứng nội sọ của viêm xương chũm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn phát âm rõ ràng có thể do quá trình phát triển ngôn ngữ chậm dẫn đến hệ thống âm vị trên não bộ phát triển chậm hơn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng viêm xương chũm cấp/mạn tính đều có thể gây ra liệt dây thần kinh vận động cơ mặt làm méo mặt."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá làm giảm khả năng hoạt động của cơ vòng dưới thực quản, từ đó làm trầm trọng thêm trào ngược dạ dày thực quản (GERD)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm gan nhiễm mỡ không do rượu (NASH) tiến triển có thể dẫn đến xơ hóa và xơ gan."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh bụi phổi amiăng có thể được xác định chỉ dựa vào dấu hiệu lâm sàng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá làm giảm khả năng hoạt động của cơ vòng dưới thực quản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc thủy ngân thường gây ra yếu cơ, khó nghe, và khó đi lại do tổn thương dây thần kinh ở mặt hoặc tay."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm ở giai đoạn hậu sản được phân loại là rối loạn tâm thần và hành vi nhẹ liên quan đến thời kỳ hậu sản (F53.0)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phổi bên phải có ba thùy, trong khi phổi bên trái có hai thùy."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong viêm da cơ địa, việc gãi ngứa không gây ra bất kỳ biến chứng nào ngoài da."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đơn vị chức năng của phổi bao gồm các tiểu phế quản hô hấp, các ống phế nang, các túi và phế nang."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mụn trứng cá mủ (Pustular acne) hình thành qua ba giai đoạn: tắc nghẽn lỗ chân lông, tích tụ chất nhờn, và sau đó là viêm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đột quỵ não có thể được sơ cứu bằng nguyên tắc FAST (Face, Arms, Speech, Time)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trẻ mắc rối loạn phổ tự kỷ có tỷ lệ mắc động kinh khoảng 30%."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cao huyết áp sau sinh thường là nguyên nhân thứ phát (do nguyên nhân khác)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tăng huyết áp không phải là yếu tố làm nặng thêm biến chứng tim mạch ở bệnh nhân đái tháo đường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh tay-chân-miệng lây truyền chủ yếu theo đường tiêu hoá, nguồn lây chính từ nước bọt, phỏng nước và phân của trẻ nhiễm bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp ở giai đoạn sớm có xu hướng ảnh hưởng đến khớp khuỷu tay và khớp vai trước."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "NTTNDT hiếm xảy ra ở nam giới từ 15 đến 50 tuổi và luôn được xem là không biến chứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc chì có thể gây ra khó nghe và khó nói."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đơn vị chức năng của phổi chỉ bao gồm các phân đoạn phế quản phổi và không bao gồm các tiểu phế quản hô hấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Phì đại tuyến tiền liệt tăng lên ở nam giới trên 50 tuổi, làm giảm tỷ lệ mắc NTTNDT giữa nam và nữ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hệ tuần hoàn bao gồm ba thành phần chính: tim, mạch máu (động mạch, tĩnh mạch, mao mạch), và hệ tuần hoàn bạch huyết."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm gan virus B và C có con đường lây truyền tương tự như virus HIV, và có thể dẫn đến xơ gan và ung thư gan."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc chia nhỏ bữa ăn và tránh ăn quá nhiều trong một bữa không giúp kiểm soát các bệnh về đường tiêu hóa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân rối loạn nhân cách không nên được chẩn đoán rối loạn tâm thần khác ngay cả khi có rối loạn đi kèm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý hô hấp chỉ xảy ra vào thời điểm giao mùa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do đái tháo đường là nguyên nhân hàng đầu gây suy giảm thị lực và mù lòa trên toàn thế giới."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm dai dẳng là sự hợp nhất của rối loạn trầm cảm điển hình mạn tính và loạn khí sắc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc thủy ngân không ảnh hưởng đến thị lực, mà chỉ gây tổn thương dây thần kinh thính giác và vận động."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ là một biến chứng mạch máu lớn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đường hô hấp dưới bao gồm mũi, họng, xoang và thanh quản."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cơn đau thắt ngực (Angina) thường kéo dài hơn 60 phút."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong cơn bão giáp, rối loạn thần kinh trung ương (như mê sảng, hôn mê) là một tiêu chí để đánh giá mức độ nặng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phù gai thị (sưng phía sau mắt) là dấu hiệu cảnh báo cần được quan tâm đặc biệt trong chẩn đoán đau nhiều khớp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau cơ xơ hóa được chẩn đoán bắt buộc dựa trên biểu hiện đau ở 18 vị trí đau đặc hiệu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các triệu chứng viêm đường hô hấp trên thường rất nghiêm trọng và dễ để lại biến chứng nguy hiểm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn hậu thủ thuật của hệ thần kinh không bao gồm các rối loạn ở tai và xương chũm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Vị trí thường gặp của ghẻ là lòng bàn tay, kẽ ngón tay, cổ tay, và vùng sinh dục."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong hội chứng Marfan, các bất thường về mắt bao gồm tăng chiều dài trục nhãn cầu (gây cận thị)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ là một bệnh lý mắt không liên quan đến rối loạn viêm nhiễm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Lymphoma được xác định là khối u ác tính nguyên phát tại não có thể được coi là biến chứng của bệnh HIV."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ghẻ có thời gian ủ bệnh thường 10-15 ngày và tổn thương cơ bản là luống ghẻ và mụn nước."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Co giật không kiểm soát là một yếu tố tiên lượng nặng đối với trẻ sơ sinh bị bệnh não thiếu oxy thiếu máu cục bộ (HIE)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm cầu thận cấp là biến chứng không liên quan đến chốc loét."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn tuyến giáp không có khả năng gây ảnh hưởng đến thị lực."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc chì có thể gây ra các triệu chứng như huyết áp cao, đau đầu và mất trí nhớ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm và lo âu có thể được điều trị hiệu quả bằng liệu pháp phân tâm học, có thể kéo dài ít nhất 1 năm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh thận mạn tính (Chronic kidney disease) không bao giờ là biến chứng của bệnh đái tháo đường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để điều trị béo phì, phẫu thuật nối shunt hỗng tràng dạ dày là phương pháp điều trị đầu tiên được ưu tiên áp dụng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở trẻ em, các tổn thương ghẻ có thể gặp ở chân, đầu và mặt."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho kéo dài hơn 8 tuần trong viêm phế quản là một dấu hiệu cần đi khám bác sĩ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Kim loại nặng như Chì nổi tiếng trong việc gây ra tăng huyết áp (huyết áp cao)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nghe kém tiếp nhận sau viêm màng não mủ có thể ở mức độ nặng sâu cả hai tai."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở trẻ mắc hội chứng Down, không cần sàng lọc béo phì vì chúng không liên quan."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn đông máu di truyền yếu tố IX (D67) là nguyên nhân hàng đầu gây nhập viện trong nhóm rối loạn đông máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp hay mạn tính đều có thể gây ra nhiều biến chứng nguy hiểm như áp-xe não và viêm màng não."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý lồi mắt trong bệnh cường giáp (Graves’ Ophthalmopathy) là bệnh mắt liên quan đến cơ chế rối loạn điều hòa miễn dịch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mang thai ở độ tuổi vị thành niên không liên quan đến nguy cơ kết quả thai kỳ bất lợi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở phụ nữ sau mãn kinh, viêm bàng quang thường được coi là nhiễm trùng tiết niệu phức tạp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là triệu chứng quan trọng của bệnh lao phổi, thể hiện có tổn thương và chảy máu trong đường hô hấp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá là nguyên nhân chính gây ra dị ứng và viêm đường hô hấp trên."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính có triệu chứng đau sâu trong tai, đau theo nhịp mạch đập."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Chấn thương khớp ở người trẻ tuổi có thể làm tăng nguy cơ phát triển thoái hóa khớp khi về già."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư phổi có tỷ lệ tử vong thấp hơn ung thư tuyến tiền liệt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trầm cảm nặng có ý nghĩ tự sát hoặc hoang tưởng có thể được điều trị bằng liệu pháp sốc điện (ECT) nếu thuốc không hiệu quả."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bất kỳ nguyên nhân nào gây tắc nghẽn đường tiết niệu (ví dụ: ung thư tuyến tiền liệt) đều là yếu tố nguy cơ của NTTNDT."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp (RA) có đặc trưng là cứng khớp buổi sáng kéo dài trên 1 giờ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tê bì chân tay, cảm giác châm chích, kiến bò thường gặp nhất ở chân, lan dần từ ngón chân đến bàn chân và lên cẳng chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương da và rối loạn thị giác có thể là dấu hiệu điển hình của khối u đỉnh phổi (ung thư phổi)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ngưng tim là tình trạng tim ngừng đập đột ngột, có thể dẫn đến tử vong trong thời gian ngắn mà không có tín hiệu báo trước."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sản dịch bình thường có mủ và mùi hôi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm thị thần kinh chỉ xảy ra ở người già và không liên quan đến bệnh Đa xơ cứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tiên lượng sống sót sau 5 năm với người mắc ung thư phổi giai đoạn cuối là trên 50%."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư đại tràng thường gây đi tiêu ra máu tươi, dễ nhầm với nứt hậu môn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Giãn phế nang (Emphysema) là một thể của COPD, do tăng tiết chất nhầy quá mức làm tắc nghẽn đường thở."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các hạch bạch huyết (lymph nodes) nằm trong danh sách các vị trí di căn phổ biến đối với u tân sinh ác tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nguy cơ mắc Mụn trứng cá đỏ cao hơn ở nam giới trên 30 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh bụi phổi silic mãn tính thường xảy ra sau khoảng thời gian dài từ 10 - 30 năm tiếp xúc trực tiếp với bụi silic ở nồng độ thấp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nứt đốt sống là dị tật liên quan đến những khiếm khuyết của ống thần kinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá không làm giảm khả năng hoạt động của cơ vòng dưới thực quản."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tăng huyết áp hậu sản chỉ là vô căn (không rõ nguyên nhân) và không gây biến chứng nguy hiểm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đau ngực trong cơn nhồi máu cơ tim có thể lan tỏa đến cánh tay, cổ, hàm và lưng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Vô sinh nam (N46) hoặc vô sinh nữ (N97.-) có thể được sử dụng làm mã bệnh chính (main condition) ngay cả khi nguyên nhân cơ bản của vô sinh đã được xác định."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp phá thai lén có tai biến nên nhập viện, mã bệnh chính là mã cho mục đích quản lý tránh thai (Z30)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Liệu pháp sốc điện (ECT) chỉ có tác dụng đối với các triệu chứng tiêu cực của trầm cảm, không áp dụng cho trầm cảm có hoang tưởng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hội chứng tự kỷ trẻ em là một dạng rối loạn sự phát triển lan tỏa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là triệu chứng hiếm gặp và không quan trọng trong chẩn đoán bệnh lao phổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân suy giảm miễn dịch cần phải được điều trị nhiễm trùng đường tiết niệu không có triệu chứng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Để phòng ngừa rối loạn nội tiết tố, nên tập thể dục quá sức để tăng cường sự trao đổi chất trong cơ thể."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Lao phổi là một trong những bệnh viêm đường hô hấp dưới, có mức độ nghiêm trọng cao."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do đái tháo đường là một ví dụ về bệnh mắt được mã hóa bằng mã đơn (Single code) vì nguyên nhân đã được xác định."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh viêm màng não là một trong các bệnh lý viêm hệ thần kinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong thời kỳ hậu sản, các bệnh lý như trĩ và táo bón thường có thể xuất hiện."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư phổi không tế bào nhỏ phát triển nhanh hơn ung thư phổi tế bào nhỏ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trẻ mắc suy giảm miễn dịch nguyên phát thường có thời gian nhiễm trùng lâu hơn và điều trị khó khăn hơn so với trẻ bình thường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Lao phổi được phân loại là bệnh hô hấp không lây nhiễm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để tránh chấn thương khớp gối khi nhảy, nên tiếp đất bằng đầu gối cong."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các hạt thấp dưới da là dấu hiệu thường gặp ở bệnh nhân viêm khớp dạng thấp tại Việt Nam."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ là một biến chứng mạch máu nhỏ (microvascular) của bệnh đái tháo đường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rung nhĩ và suy tim là các biến chứng thường gặp của đột quỵ tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau ngực kèm khó thở hoặc đau quai hàm, cánh tay là triệu chứng của trào ngược dạ dày, không phải là triệu chứng của cơn đau tim."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hoang tưởng cảm ứng (F24) là một loại rối loạn loạn thần cấp và thoáng qua."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Dị tật nứt đốt sống là do sự phát triển bất thường của tim thai."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nếu một bệnh nhân có nhiều khối u ác tính nguyên phát độc lập, mã bệnh chính luôn được mã hóa cho khối u có tỷ lệ tử vong cao nhất."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cường giáp có thể gây ra chứng sợ nóng và tăng tiết mồ hôi, dễ nhầm lẫn với dấu bốc hỏa của phụ nữ mãn kinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nghe kém chỉ là vấn đề ở tai và không liên quan đến việc xử lý thông tin tại não bộ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Biếng ăn ở trẻ em được chẩn đoán khi năng lượng ăn vào đạt được từ 70-90% nhu cầu theo khuyến nghị."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Dấu hiệu mệt mỏi, khó tập trung, rối loạn giấc ngủ chỉ là triệu chứng của rối loạn tâm thần, không liên quan đến bệnh lý tuyến giáp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khát nhiều, tiểu nhiều (trên 3 lít/ngày) và sụt cân không rõ nguyên nhân là các dấu hiệu phổ biến của bệnh đái tháo đường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh thần kinh ngoại biên chỉ gây rối loạn cảm giác và vận động, không ảnh hưởng đến thần kinh tự động."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Xơ vữa động mạch chỉ xảy ra do sự tích tụ cholesterol, không liên quan đến tình trạng viêm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tai là cơ quan quyết định khả năng nghe và xử lý thông tin nghe được của trẻ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "NTTNDT ở phụ nữ từ 20 đến 50 tuổi phổ biến hơn ở nam giới."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh lao phổi thường gặp nhất, chiếm hơn 80% các bộ phận cơ thể bị lao và là nguồn lây chính cho người xung quanh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn khí sắc nhẹ kéo dài (Dysthymia) là một loại rối loạn khí sắc dai dẳng (Persistent mood disorder)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh dịch hạch thể phổi tiên phát có triệu chứng nổi bật là tiêu chảy và đau bụng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc thủy ngân có thể gây khó nghe và khó nói do tổn thương dây thần kinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở trẻ em biếng ăn, nên cho trẻ ăn vặt và uống đồ ngọt giữa các bữa ăn để bổ sung năng lượng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong viêm xương chũm cấp tính, triệu chứng đau thường khu trú tại vùng thái dương và không lan ra vùng chũm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nhiễm trùng đường tiết niệu chỉ liên quan đến đường tiểu, không có nguy cơ gây ra vãng khuẩn huyết mắc phải tại bệnh viện."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các tổn thương thiếu máu cục bộ (ischemic injury) có chung con đường phân tử với cơ chế bệnh sinh của bệnh Alzheimer."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cần đánh giá thính lực sau 12 tháng hồi phục sau viêm màng não mủ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm loét dạ dày chỉ xảy ra ở người trẻ tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Liệu pháp sốc điện (ECT) là một lựa chọn điều trị hiệu quả cho trầm cảm nặng có tự sát hoặc trầm cảm có hoang tưởng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Xơ vữa động mạch là cơ chế bệnh sinh cơ bản dẫn đến phần lớn các bệnh tim mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa cột sống là quá trình bắt đầu từ độ tuổi 30 và tăng tốc độ theo tuổi bệnh nhân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương dây thần kinh ngoại biên gây mất cảm giác ở tay chân, làm người bệnh không cảm nhận được nóng lạnh hoặc vật sắc nhọn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh bụi phổi amiăng, chỉ cần dựa vào dấu hiệu lâm sàng là đủ để xác định bệnh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý do nấm Cryptococcus neoformans thường gây nhiễm trùng hệ thần kinh hoặc phổi vì nấm này thích nghi tốt với nhiệt độ bên trong cơ thể người."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Chủng vi khuẩn gây bệnh chốc thường là tụ cầu vàng (50-70%), hoặc phối hợp với liên cầu tan huyết nhóm A."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Suy giảm miễn dịch nguyên phát liên quan mật thiết đến các yếu tố di truyền."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bạch hầu ác tính, triệu chứng sốt cao và giả mạc lan rộng thường đi kèm với hình ảnh cổ bạnh do hạch cổ sưng to."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mẫu nước tiểu được để ở nhiệt độ phòng > 2 giờ có thể mang lại kết quả đếm khuẩn lạc cao giả tạo do sự nhân lên của vi khuẩn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Dịch tử cung và đường sinh dục chảy ra ngoài trong những ngày đầu tiên của thời kỳ hậu sản không được gọi là sản dịch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán loét bàn chân đái tháo đường, độ 4 được định nghĩa là hoại tử lan rộng và sâu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đau tức ngực trong ung thư phổi giai đoạn tiến triển có thể lan ra vai hoặc sau lưng, dễ nhầm lẫn với thoái hóa cột sống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tê bì chân tay, cảm giác châm chích thường gặp nhất ở chân, lan dần từ ngón chân đến bàn chân và lên cẳng chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các bệnh hô hấp mạn tính không bao giờ gây ra gánh nặng kinh tế."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng nhiễm trùng huyết trong hậu sản bao gồm sốt cao liên tục, rét run, môi khô, lưỡi bẩn, và khó thở."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong giai đoạn hưng cảm (Manic episode), bệnh nhân không bao giờ có thể có triệu chứng loạn thần."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngứa mắt và chảy nước mắt là các triệu chứng ít gặp nhưng có thể xảy ra trong nhiễm trùng đường hô hấp trên."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán thiếu máu ở trẻ em, chỉ số hemoglobin giảm là đủ để xác định."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mọi người có thể nằm ngay sau khi ăn vì điều này không ảnh hưởng đến trào ngược dạ dày."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Liệu pháp ánh sáng được biết đến nhiều nhất vì tác dụng đối với trầm cảm theo mùa nhưng dường như cũng có hiệu quả đối với trầm cảm không theo mùa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nếu một bệnh nhân được chẩn đoán ung thư tuyến giáp thể tủy, không cần thiết phải thực hiện xét nghiệm di truyền vì chỉ 25% các trường hợp là do di truyền."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để giảm ợ nóng vào ban đêm, nên nâng cao đầu giường từ 15–23 cm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các thuốc điều trị béo phì thường mang lại hiệu quả cao ngay cả khi người bệnh không thay đổi chế độ ăn và vận động."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng viêm đường hô hấp trên ở người trưởng thành có thể tái phát khoảng 2-4 lần/năm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở nam giới trên 50 tuổi, tỷ lệ mắc NTTNDT tăng lên do tần suất phì đại tuyến tiền liệt tăng lên."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phản ứng X quang trong chẩn đoán ung thư đại tràng thường chỉ có giá trị khi khối u đã ở giai đoạn rất muộn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc tìm kiếm các triệu chứng ngoài khớp (ví dụ: tổn thương da, niêm mạc, triệu chứng đường hô hấp) là cần thiết để gợi ý các bệnh lý viêm hệ thống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các bệnh lý miễn dịch và huyết học mạn tính gây ra gánh nặng đáng kể về mặt thể chất và tâm lý cho người bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nhồi máu cơ tim có thể gây tổn thương cơ tim vĩnh viễn và tử vong nếu lưu lượng máu không được phục hồi nhanh chóng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tăng huyết áp có thể là nguyên nhân khiến người bệnh ĐTĐ có nguy cơ mắc bệnh tim mạch cao hơn 2 – 4 lần so với người không bị ĐTĐ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hệ miễn dịch bao gồm cả suy giảm miễn dịch và phản ứng quá mức (quá mẫn)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng bế sản dịch không phải là một trong những nguyên nhân của hậu sản sau sinh. (Used from previous output, assumed false)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trào ngược dạ dày thực quản không gây ra đau ngực dễ nhầm lẫn với đau tim."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cận thị có liên quan đến việc tăng chiều dài trục nhãn cầu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mụn trứng cá đỏ (Rosacea) thường khởi phát với cảm giác nóng bừng mặt, châm chích khó chịu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hệ miễn dịch bao gồm cả suy giảm miễn dịch nguyên phát và các rối loạn tự miễn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn hậu thủ thuật (postprocedural disorders) của hệ thần kinh (G97.-) có thể bao gồm các rối loạn ở tai và xương chũm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư tuyến tiền liệt lan rộng có thể gây tiểu khó và tiểu nhiều lần về đêm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hen suyễn chỉ là bệnh lý dị ứng nhẹ và không có nguy cơ tử vong cao."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ho kéo dài hơn 3 tuần mà không giảm sau khi dùng nhiều loại thuốc ho nên nghĩ đến bệnh lao phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nếu một khối u ác tính được phát hiện, mục tiêu điều trị luôn là loại bỏ triệt để khối tế bào ung thư ra khỏi cơ thể."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hôn mê suy giáp thường được chẩn đoán dễ dàng ngay cả khi bệnh nhân thiếu nhiều triệu chứng lâm sàng điển hình."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở trẻ em dưới 3 tháng tuổi mắc ho gà, thời kỳ khởi phát (viêm long) thường chỉ kéo dài một vài ngày hoặc không có."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nguy cơ mắc ung thư tuyến tiền liệt giảm sau 60 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm da cơ địa chỉ liên quan đến cơ chế hàng rào da bị tổn thương, không liên quan đến rối loạn đáp ứng miễn dịch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp là bệnh tự miễn, phổ biến ở phụ nữ, thường bắt đầu ở tuổi trung niên."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn tiêu hóa kéo dài có thể là biểu hiện của nhiễm ký sinh trùng mạn tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các tổn thương ghẻ ở nam giới hầu hết có thương tổn ghẻ vùng bẹn, không gặp ở các vùng khác."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán loét bàn chân đái tháo đường, độ 3 được định nghĩa là hoại tử khu trú ở ngón hoặc gót chân."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nghe là việc xảy ra ở não bộ, không phải ở tai, và khả năng xử lý thông tin nghe được phụ thuộc hoàn toàn vào não bộ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp háng ở giai đoạn đầu thường dễ chẩn đoán."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm thường xảy ra ở giữa tuổi vị thành niên, 20 tuổi, hoặc 30 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong cường giáp, người bệnh thường bị sụt cân nhưng cảm giác ngon miệng không bị ảnh hưởng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong mọi trường hợp, nếu chỉ một khối u ác tính được đề cập và nằm trong danh sách di căn phổ biến, nó phải được mã hóa là thứ phát."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các yếu tố nguy cơ của viêm khớp dạng thấp bao gồm thừa cân/béo phì và tiếp xúc với amiăng hoặc silica."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm thận bể thận không được coi là nhiễm trùng tiểu phức tạp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong suy thượng thận cấp, hạ đường huyết hiếm gặp ở trẻ em nhưng thường gặp ở người lớn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh thoái hóa cơ tủy thể IV khởi phát ở trẻ nhỏ và có tiên lượng tử vong trong vòng 2 năm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân cận thị không có nguy cơ bong võng mạc."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khối u tân sinh được mô tả là “di căn từ” một vị trí cụ thể thì vị trí đó phải được mã hóa là khối u thứ phát."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong cơn bão giáp, sốt là một tiêu chí chẩn đoán nhưng không liên quan đến các rối loạn chức năng thần kinh trung ương."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nhồi máu cơ tim cấp xảy ra do mạch vành bị tắc nghẽn đột ngột bởi cục huyết khối trong lòng mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sốt trên 38°C, mệt mỏi và sản dịch hôi là các triệu chứng thường gặp của nhiễm khuẩn hậu sản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh dịch hạch thể phổi tiên phát, các triệu chứng nổi bật là nôn, buồn nôn, đau bụng và tiêu chảy."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính ở trẻ em có thể kèm theo co giật hoặc thóp phồng giống như viêm màng não."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương chốc loét thường thấy ở những vùng da được nuôi dưỡng tốt như mặt và cổ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm dạ dày do rượu được phân loại trong nhóm Bệnh gan do rượu (K70.-)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Chụp cản quang kép, sau khi thụt baryt và bơm hơi, có thể phát hiện khối u ung thư đại tràng rõ hơn so với chụp cản quang đơn thuần."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trẻ em mắc suy giảm miễn dịch nguyên phát thường có thời gian nhiễm trùng lâu hơn và điều trị khó khăn hơn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm màng ngoài tim, viêm van tim, và viêm cơ tim là các tổn thương tim mạch không liên quan đến viêm khớp dạng thấp. (Used from previous output, assumed true)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nhiễm trùng hậu sản là tình trạng nhiễm trùng chỉ xảy ra trong 72 giờ đầu sau sinh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khám toàn thân để phát hiện các triệu chứng ngoài khớp (như sốt, phát ban, sụt cân) có thể gợi ý các bệnh lý viêm hệ thống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Giảm tiểu cầu miễn dịch cấp tính được chẩn đoán khi số lượng tiểu cầu trở về bình thường (>150,000/mm3) trong vòng 3 tháng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sau khi phục hồi sau viêm màng não mủ, cần tầm soát thính lực sớm để phát hiện nghe kém tiếp nhận."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Yếu tố dạng thấp trong huyết thanh dương tính là một tiêu chuẩn bắt buộc và đủ để xác định chẩn đoán viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Da là cơ quan lớn nhất trong cơ thể, có vai trò phòng thủ chống lại các mối đe dọa môi trường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Để điều trị NTTNDT, chỉ cần tập trung vào việc dùng thuốc, không cần thay đổi lối sống như dùng sản phẩm nam việt quất."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý dây thần kinh ngoại biên chỉ xảy ra do các yếu tố chuyển hóa, không liên quan đến ngộ độc kim loại nặng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đau cơ xơ hóa được chẩn đoán dựa trên sự hiện diện của 18 vị trí ấn đau đặc hiệu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn nội tiết (E00-E90) không bao giờ là nguyên nhân gây ra các bệnh tim mạch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khám mắt định kỳ hàng năm là quan trọng để phát hiện sớm tật khúc xạ và sàng lọc các bệnh lý như đục thủy tinh thể ở trẻ em."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hóa trị liệu là phương pháp duy nhất để điều trị ung thư đại tràng giai đoạn IV."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh thoái hóa thần kinh mạn tính được dự đoán sẽ tăng ít nhất gấp đôi trong hai thập kỷ tới do dân số đang già hóa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư đại tràng chỉ được chẩn đoán thông qua nội soi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Siêu âm tuyến giáp là thăm dò hữu ích giúp phát hiện bướu giáp dạng nốt ngay cả khi sờ tuyến giáp bình thường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh chàm tổ đỉa (Dyshidrotic Eczema) thường gặp ở nhóm đối tượng dưới 15 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư tuyến tiền liệt là bệnh chỉ xảy ra ở nam giới dưới 50 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp ở giai đoạn sớm có xu hướng ảnh hưởng đến các khớp lớn trước, như khớp háng và khớp gối."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh uốn ván toàn thân thường khởi phát với triệu chứng mỏi quai hàm, nhai khó, nuốt khó, sau đó dẫn đến cứng hàm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mục tiêu quản lý các bệnh cơ xương khớp là giúp bệnh nhân tự quản lý bệnh tại nhà để giảm nhu cầu phẫu thuật."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư tuyến tiền liệt tiến triển chậm và hiếm khi có triệu chứng ở giai đoạn sớm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp người bệnh được nhổ răng sâu lại bị sốc thuốc tê, mã bệnh chính là Sâu Răng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc kiểm soát huyết áp và thay đổi lối sống lành mạnh là chiến lược quan trọng để phòng ngừa bệnh tim mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Chốc loét (Ecthyma) là một dạng nhiễm trùng da sâu thường gặp ở trẻ em suy dinh dưỡng hoặc người suy giảm miễn dịch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp trẻ biếng ăn, nên cho trẻ ăn vặt và uống đồ ngọt giữa các bữa ăn để bổ sung năng lượng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp bệnh lỵ trực khuẩn, người bệnh thường đi ngoài phân toàn nước như nước vo gạo, không có nhày máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh tay-chân-miệng lây truyền chủ yếu qua đường tiêu hoá, nguồn lây chính từ nước bọt, phỏng nước và phân của trẻ nhiễm bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương mắt như viêm kết mạc, viêm giác mạc chỉ xảy ra ở vảy nến toàn thân, không gặp ở vảy nến khu trú."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp chỉ xảy ra ở người lớn, hiếm khi xảy ra ở tuổi vị thành niên."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh tay-chân-miệng có thể gây ra nhiều biến chứng nguy hiểm như viêm não-màng não, viêm cơ tim và phù phổi cấp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Xơ vữa động mạch thường bắt đầu bằng Mảng xơ vữa phức tạp trước khi hình thành Vệt mỡ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Phụ nữ trước khi mang thai cần thực hiện khám tiền sản và điều trị ổn định các bệnh mạn tính như tiểu đường, tim mạch để phòng ngừa dị tật thai nhi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là một triệu chứng quan trọng của bệnh hô hấp dưới, cần cảnh giác với lao phổi hoặc ung thư phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm võng mạc do ĐTĐ là nguyên nhân hàng đầu gây mù lòa, nhưng không liên quan đến rối loạn vi tuần hoàn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán đau thắt ngực (Angina pectoris), cảm giác đau thường kéo dài hơn 1 giờ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các mã M20.- và M21.- (Biến dạng mắc phải của chi) không thể được sử dụng làm mã bệnh chính vì chúng được liệt kê là các tình trạng ít gây tử vong."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để chẩn đoán suy dinh dưỡng ở người bệnh hôn mê hoặc cụt chi, có thể tiến hành đo chiều dài đầu gối hoặc sải tay."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm đường hô hấp trên không bao giờ gây ra triệu chứng nôn hoặc tiêu chảy."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn lo âu và trầm cảm có thể xảy ra ở bệnh nhân sau đột quỵ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tăng huyết áp, rối loạn mỡ máu, béo phì và nghiện thuốc lá là các yếu tố làm nặng thêm biến chứng tim mạch ở bệnh nhân đái tháo đường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hệ miễn dịch bẩm sinh sử dụng thụ thể nhận dạng khuôn mẫu (PRRs) để nhận biết các mầm bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh sốt xuất huyết Dengue, các dấu hiệu cảnh báo bao gồm triệu chứng sốt đơn thuần, không bao gồm nôn ói nhiều hay đau bụng vùng gan."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các đợt trầm cảm ngắn tái phát (Recurrent brief depressive disorder) được định nghĩa là các đợt trầm cảm kéo dài trên 2 tuần."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá làm giảm khả năng hoạt động của cơ vòng dưới thực quản, làm trầm trọng thêm GERD."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn tiêu hóa như tiêu chảy thường gặp và kéo dài ở bệnh nhân cường giáp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc viêm màng não có thể gây viêm mê nhĩ dẫn đến xơ hóa và vôi hóa ốc tai sau đó và gây nghe kém."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng lên máu hậu sản (cao huyết áp sau sinh) nếu không được điều trị có thể dẫn tới các biến chứng như suy tim, tai biến mạch máu não và suy thận."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cơn sốt rét do ký sinh trùng P. falciparum thường có tính chất chu kỳ, với chu kỳ sốt cách mỗi 48 giờ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh Parkinson là một trong các bệnh thần kinh mạn tính được Bộ Y tế Việt Nam phân loại theo ICD-10."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cận thị có liên quan đến tăng chiều dài nhãn cầu và làm tăng nguy cơ bong võng mạc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm dạ dày xuất huyết cấp là bệnh lý chỉ được mã hóa bằng mã có 3 ký tự (K29)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tiếng ù tai (Tinnitus) được phân loại là một rối loạn khác của tai, không được mã hóa trong Chương VI (Bệnh hệ thần kinh)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Khối u tân sinh ở phổi gây tắc nghẽn đường dẫn khí có thể dẫn đến nhiễm trùng hô hấp tái phát tại cùng một vị trí phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng rối loạn giấc ngủ, khó ngủ hoặc buồn ngủ không phải là triệu chứng liên quan đến bệnh ĐTĐ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm bàng quang và viêm thận bể thận là các loại nhiễm trùng tiểu phổ biến nhất ở phụ nữ tuổi từ 20 đến 50."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là triệu chứng quan trọng của bệnh hô hấp dưới, cần cảnh giác với lao phổi hoặc ung thư phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tim, mạch máu (động mạch, tĩnh mạch, mao mạch) và hệ bạch huyết là ba thành phần chính của hệ tuần hoàn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nếu một người có kết quả xét nghiệm đường huyết cao, cần phải mã hóa ngay là bệnh đái tháo đường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cơn nhồi máu cơ tim cấp tính (I22) không thể xảy ra trên bệnh nhân đã bị nhồi máu cơ tim mạn tính."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân rối loạn đau buồn kéo dài có triệu chứng kéo dài dưới 6 tháng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thời gian 2 năm đầu đời được coi là \"thời điểm vàng\" để can thiệp thính lực nhằm phát triển ngôn ngữ cho trẻ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hội chứng ruột kích thích (IBS) là một trong những rối loạn chức năng ruột được phân loại trong Chương Bệnh hệ tiêu hóa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp là một bệnh lý viêm hệ thống điển hình, tương tự như viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các bệnh lý tự miễn chỉ xảy ra ở người lớn, không xảy ra ở trẻ em."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn lo âu xã hội (ám ảnh xã hội) đặc trưng bởi sự lo lắng về việc bị lây bệnh, nghi ngờ điều gì đó và nhu cầu sắp xếp đồ đạc theo thứ tự."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh cảnh nhiễm trùng nhiễm độc nặng, sốt cao, giả mạc lan rộng, hình cổ bạnh là biểu hiện của bạch hầu thể hô hấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mệt mỏi kéo dài, khó thở và cảm giác tức ngực là những triệu chứng cảnh báo có thể gợi ý bệnh tim mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các mảng xơ vữa động mạch chỉ bao gồm cholesterol, không liên quan đến tình trạng viêm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các thuốc được chọn lựa đầu tiên để điều trị tăng huyết áp ở người đái tháo đường là nhóm chẹn kênh calci."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nhiễm trùng đường tiết niệu (NTTNDT) không được điều trị dứt điểm có thể gây ra biến chứng như áp xe quanh thận và nhiễm trùng huyết."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tăng đường huyết mạn tính thúc đẩy quá trình xơ vữa động mạch và làm tăng nguy cơ mắc bệnh tim mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tiêu chảy do tả thường khởi phát rất nhanh trong vòng 24 giờ với tiêu chảy dữ dội, không kèm sốt hoặc mót rặn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh chốc loét, bệnh nhân có thể có các triệu chứng toàn thân như sốt cao liên tục và hội chứng nhiễm trùng nhiễm độc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mệt mỏi kéo dài, kiệt sức dù không làm việc quá sức không phải là biểu hiện của bệnh tim mạch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong viêm loét dạ dày cấp tính, nếu được phát hiện và điều trị đúng cách, bệnh có thể hoàn toàn chữa khỏi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phụ nữ mang thai mắc ĐTĐ cần thực hiện xét nghiệm cần thiết vì lượng đường trong máu cao có thể gây ra các vấn đề sức khỏe nghiêm trọng cho cả mẹ và thai nhi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn đau buồn kéo dài khác với trầm cảm ở chỗ nỗi buồn liên quan đến mất mát cụ thể hơn là cảm giác thất bại chung chung."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh hen suyễn không bao giờ xảy ra ở người trên 40 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khối u được mô tả là “di căn từ” (metastatic from) một vị trí cụ thể thì vị trí đó phải được coi là khối u thứ phát."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp gối thường xảy ra ở người trẻ tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc chì có thể gây ra rối loạn tiêu hóa như đau bụng, tiêu chảy."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp thường ảnh hưởng đến các khớp nhỏ một cách đối xứng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nếu một bệnh nhân có nhiều bệnh cùng nguyên nhân khiến người bệnh vào viện, bệnh ghi đầu tiên luôn là bệnh chính."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Lỗ niệu đạo lệch thấp (lỗ tiểu lệch thấp) là một dị tật bẩm sinh thường gặp ở bé trai."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn phát âm rõ ràng chỉ xảy ra do tổn thương não hoặc dây thần kinh, không bao giờ do quá trình phát triển ngôn ngữ chậm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nghe kém sau ốc tai là tình trạng không thể được can thiệp cấy điện cực ốc tai."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Chụp niệu đồ tĩnh mạch (IVP) là một xét nghiệm hình ảnh tiêu chuẩn để chẩn đoán bệnh lao thận."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng bị đái tháo đường có thể là yếu tố tiên lượng nặng cho bệnh nhân mắc SARS."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rung nhĩ (I48) là một trong những rối loạn nhịp tim cấp tính được phân loại trong Chương Bệnh hệ tuần hoàn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh dịch hạch thể nhiễm khuẩn huyết thường gặp ở người lớn tuổi, kèm theo các triệu chứng tiêu hóa như nôn, buồn nôn, đau bụng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp thường ảnh hưởng đến các khớp nhỏ một cách đối xứng, đặc trưng bởi cứng khớp buổi sáng kéo dài hơn 30 phút."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các trường hợp ung thư biểu mô tuyến giáp thể nhú có thể được tìm thấy một cách tình cờ qua tổ chức tuyến giáp được lấy từ người bệnh bướu giáp đa nhân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính có triệu chứng đau sâu trong tai, đau theo nhịp mạch đập, lan ra vùng chũm và thái dương."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mô liên kết hỗn hợp (MCTD) là một bệnh tự miễn đặc trưng bởi sự giao thoa giữa các đặc điểm lâm sàng của nhiều bệnh tự miễn khác."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau xương và đau đầu hoặc rối loạn thần kinh là các dấu hiệu gợi ý di căn xa của ung thư phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Để chẩn đoán viêm da tiếp xúc dị ứng, Thử nghiệm áp da (Patch Test) chỉ phát hiện được khoảng 10% số chất gây dị ứng liên quan đến lâm sàng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Đơn vị chức năng của phổi chỉ bao gồm các phân đoạn phế quản phổi, không bao gồm tiểu phế quản hô hấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh chàm tổ đỉa là một bệnh truyền nhiễm lây lan qua tiếp xúc da thông thường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở giai đoạn tiến triển, đau tức ngực do ung thư phổi có thể lan ra vai hoặc sau lưng, dễ nhầm lẫn với thoái hóa cột sống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau sâu trong tai, đau theo nhịp mạch đập, lan ra vùng chũm và thái dương là triệu chứng chính của viêm xương chũm cấp tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm màng não mủ là nguyên nhân phổ biến nhất gây nghe kém mắc phải ở trẻ em, thường là loại nghe kém tiếp nhận."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tiêu chuẩn chẩn đoán viêm khớp dạng thấp chỉ dựa trên triệu chứng tại khớp, không cần các xét nghiệm huyết thanh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh lỵ trực khuẩn, đi ngoài phân thường loãng như nước vo gạo và không bao giờ có nhầy máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm thận bể thận thường liên quan đến sốt cao, vỗ hông lưng dương tính và tiểu mủ đại thể với trụ bạch cầu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm đường hô hấp dưới thường không gây sốt cao trên 38°C."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tổn thương mắt không bao giờ là triệu chứng ngoài khớp ở bệnh nhân viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm màng não mủ do vi khuẩn hiếm khi là nguyên nhân gây ra nghe kém ở trẻ em."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hầu hết các bệnh lý của tai và xương chũm đều là bẩm sinh, không phải mắc phải."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong viêm màng não mủ, nếu có hình ảnh xơ hóa và vôi hóa ốc tai trên chẩn đoán hình ảnh thì không cần can thiệp cấy điện cực ốc tai."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc sử dụng thuốc tránh thai đường uống bị chống chỉ định đối với trẻ nữ mắc ĐTĐ tuýp 2."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm mê nhĩ do nhiễm trùng không dẫn đến xơ hóa và vôi hóa ốc tai."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh Đa xơ cứng (MS) là nguyên nhân hàng đầu gây tàn tật mạn tính không do chấn thương ở người trẻ tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Khi một người mô tả cảm giác buồn bã sau cái chết của người thân, thuật ngữ chuẩn xác nhất là \"trầm cảm\"."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc thủy ngân có thể gây ra khó nghe và khó nói."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm dạ dày do rượu là một mã bệnh được phân loại trong chương này."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ là biến chứng mạch máu lớn (macrovascular) phổ biến nhất của bệnh ĐTĐ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Suy giảm miễn dịch nguyên phát là tình trạng hệ thống miễn dịch của trẻ hoạt động quá mức, gây ra các bệnh dị ứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp cùng chậu có thể gây đau lưng, hông, cảm giác tê bì chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Dị tật bẩm sinh bao gồm các bất thường về cấu trúc hoặc chức năng có từ khi sinh ra."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm tuyến mang tai do quai bị rất hiếm khi kèm theo viêm tinh hoàn ở tuổi dậy thì."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm da cơ địa ở trẻ em dưới 2 tuổi thường nặng hơn vào mùa hè và thời tiết ẩm ướt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tổn thương dây thần kinh ngoại biên luôn cải thiện theo thời gian và không bao giờ tiến triển suốt đời."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khái niệm \"trầm cảm\" thường được sử dụng để miêu tả tình trạng giảm khí sắc do những mất mát như cái chết của người thân."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khó tiêu (Dyspepsia) không được phân loại là một rối loạn chức năng tiêu hóa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Phì đại tuyến tiền liệt thường tăng lên ở nam giới trên 50 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh uốn ván toàn thân khởi phát với triệu chứng mỏi quai hàm, nhai khó, nuốt khó, dần dần dẫn đến cứng hàm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn ám ảnh lo âu sợ hãi ở trẻ em là một ví dụ về rối loạn cảm xúc với sự khởi phát đặc biệt ở trẻ em."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đái tháo đường tuýp 1 là một rối loạn tự miễn trong đó tế bào T phá hủy tế bào beta tuyến tụy."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa điểm vàng tuổi già (AMD) không phải là nguyên nhân phổ biến gây xuất huyết thủy tinh thể."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc đo huyết áp mỗi lần khám bệnh và theo dõi tại nhà là cần thiết cho người bệnh ĐTĐ và bệnh thận mạn tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sau viêm màng não mủ, nghe kém thường là mức độ nhẹ và luôn tự phục hồi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp cùng chậu có thể gây đau thắt lưng, hông và cảm giác tê bì chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh giãn phế nang (Emphysema) là một thể của COPD, do tăng tiết chất nhầy quá mức làm tắc nghẽn đường thở."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính thường chỉ xảy ra ở người lớn tuổi, không phải là bệnh lý thường gặp ở trẻ em."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bướu giáp đơn thuần thường được định nghĩa là tình trạng tuyến giáp lớn kèm theo suy giáp hoặc cường giáp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng buồn nôn và khó tiêu luôn là dấu hiệu của bệnh dạ dày, không bao giờ là biểu hiện của cơn đau tim thầm lặng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn chuyển hóa như béo phì, kháng insulin và tăng mỡ máu có thể dẫn đến bệnh gan nhiễm mỡ không do rượu (NAFLD)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc tầm soát ung thư đại trực tràng định kỳ bằng xét nghiệm máu ẩn trong phân giúp phát hiện sớm các dấu hiệu bất thường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh viêm phế quản mạn tính (một dạng của COPD) đặc trưng bởi sự sản xuất quá mức chất nhầy (excess mucus production)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sinh thiết cơ tim là một trong các phương pháp chẩn đoán suy tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc kim loại nặng cấp tính thường chỉ gây tổn thương khu trú và không gây tổn thương thận hoặc gan."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cả đái tháo đường (ĐTĐ) tuýp 1 và tuýp 2 đều là yếu tố nguy cơ độc lập và mạnh đối với bệnh mạch vành, tai biến mạch máu não và mù lòa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong xuất huyết giảm tiểu cầu miễn dịch cấp tính, người bệnh không bao giờ có nguy cơ xuất huyết nội sọ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mặc dù là bệnh lý hô hấp, tiêu chảy ra nước là một biểu hiện ngoài phổi nổi bật thường gặp trong bệnh SARS."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tình trạng rối loạn mỡ máu ở bệnh nhân ĐTĐ thường do giảm sản xuất VLDL1."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bắt đầu từ độ tuổi 30, cột sống bắt đầu bị thoái hóa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Xơ vữa động mạch có thể gây đột tử mà không có các cơn đau thắt ngực ổn định trước đó."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mô liên kết hỗn hợp (MCTD) được xác định bằng một bộ triệu chứng lâm sàng duy nhất, dễ phân biệt và không giao thoa với các bệnh tự miễn khác."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cao huyết áp sau sinh được xác định là mạn tính nếu huyết áp của sản phụ vẫn không trở lại bình thường sau 12 tuần."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm khớp dạng thấp có thể ảnh hưởng đến các cơ quan ngoài khớp như phổi, tim, thận và mạch máu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Khối u tân sinh được phân loại là in situ là khối u ác tính nhưng vẫn hoàn toàn giới hạn trong mô khởi phát."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau xương, đau đầu và sụt cân là những dấu hiệu muộn của ung thư phổi giai đoạn tiến triển, thường liên quan đến di căn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm phế quản mạn tính (Hen suyễn) có thể được kích hoạt bởi các chất gây dị ứng thông thường như phấn hoa, khói thuốc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh viêm khớp dạng thấp giai đoạn muộn chỉ có tổn thương tại khớp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Loạn khí sắc là một loại rối loạn cảm xúc lưỡng cực."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính ở trẻ em có thể kèm theo các phản ứng màng não như mê sảng hoặc co giật."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tiêu thụ nước ép hoa quả được khuyến nghị thay vì hoa quả tươi để điều trị béo phì ở trẻ em."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong chốc loét, bệnh nhân không bao giờ có các triệu chứng toàn thân như sốt cao liên tục."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Liệt nửa người do tai biến mạch máu não (I64) phải được mã hóa là G81.9 (Liệt nửa người, không xác định) làm mã bệnh chính."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm loét dạ dày cấp tính nếu được phát hiện và điều trị đúng cách có thể hoàn toàn chữa khỏi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương dây thần kinh ngoại biên gây mất cảm giác ở tay chân, biểu hiện là không cảm nhận được nóng lạnh hoặc vật sắc nhọn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở bệnh nhân đái tháo đường không kiểm soát tốt, biến chứng nặng của bệnh thần kinh ngoại biên là loét bàn chân và có thể phải cắt cụt chi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hội chứng chuyển hóa có tỷ lệ mắc không tăng theo độ tuổi của dân số."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để giảm trào ngược dạ dày thực quản khi ngủ, nên nâng cao đầu giường từ 15–23 cm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm màng ngoài tim, viêm van tim và viêm cơ tim là các tổn thương tim mạch không liên quan đến viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh lây nhiễm không liên quan gì đến các bệnh lý mạn tính như tiểu đường, và không cần xem xét các bệnh đi kèm khi điều trị."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bướu giáp đơn thuần được định nghĩa là tình trạng tuyến giáp lớn mà không kèm theo tình trạng suy giáp hoặc cường giáp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Sản dịch là dịch tử cung và đường sinh dục chảy ra ngoài trong những ngày đầu tiên của thời kỳ hậu sản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ngộ độc thạch tín gây ra tổn thương dây thần kinh thính giác, dẫn đến khó nghe và mất thính lực."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn tâm thần và hành vi có thể làm phức tạp quá trình mang thai, sinh đẻ và hậu sản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong giai đoạn rối loạn trầm cảm, các triệu chứng rối loạn thực vật (mất ngủ, rối loạn ăn uống) thường đáp ứng với điều trị sớm hơn khí sắc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán suy dinh dưỡng ở người bệnh hôn mê hoặc cụt chi, không thể tiến hành đo chiều dài đầu gối hoặc sải tay."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là triệu chứng quan trọng của bệnh lao, thể hiện có tổn thương và chảy máu trong đường hô hấp, gặp ở khoảng 60% người bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong viêm phế quản cấp tính, đờm màu vàng-mủ thường xuất hiện ngay từ đầu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mục tiêu điều trị ung thư ở giai đoạn không thể chữa khỏi là thu nhỏ khối u, làm chậm sự phát triển và điều trị triệu chứng để kéo dài thời gian sống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tiêm vắc xin phòng cúm và phòng viêm phổi do phế cầu khuẩn một năm một lần là biện pháp phòng ngừa bệnh bụi phổi silic."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm phổi (J10-J18) và Hen suyễn (J45) là các bệnh lý hô hấp được mã hóa trong Chương X."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hệ miễn dịch có thể được phân thành hai loại chính: suy giảm miễn dịch và phản ứng quá mức của hệ miễn dịch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc điều trị bệnh mạch vành chỉ được thực hiện bằng các thủ thuật tái tưới máu như phẫu thuật mà không cần điều trị nội khoa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh thoái hóa cơ tủy thể I (thể nặng) thường có tiên lượng tử vong do suy hô hấp và biến chứng ở độ tuổi 2 năm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cúm mùa thường do các chủng cúm A, B đã lưu hành và không có biến chủng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Chốc loét thường thấy ở những vùng da được nuôi dưỡng tốt như mặt và cổ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa khớp có thể tiến triển nhanh chóng, gây ra vấn đề vận động nghiêm trọng, thậm chí dẫn đến tàn tật."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm và các rối loạn tâm thần khác có thể làm phức tạp quá trình mang thai, sinh đẻ và hậu sản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho kéo dài là một trong 10 biểu hiện của bệnh tim mạch dễ nhầm lẫn với viêm phế quản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh đa dây thần kinh thường bắt đầu từ các dây thần kinh dài, ở xa, do đó triệu chứng thường bắt đầu ở bàn chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong trường hợp có nhiều bệnh cùng nguyên nhân khiến người bệnh vào viện thì bệnh ghi đầu tiên luôn là bệnh chính."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tăng nhãn áp có thể là một biến chứng do sử dụng thuốc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hội chứng ruột kích thích (IBS) và Viêm loét dạ dày là các bệnh tiêu hóa thường gặp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm loét dạ dày chỉ do vi khuẩn HP gây ra."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Chủng vi khuẩn gây bệnh chốc thường là tụ cầu vàng, hoặc phối hợp với liên cầu tan huyết nhóm A."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh võng mạc do ĐTĐ là một biến chứng mạch máu lớn (macrovascular) của bệnh ĐTĐ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán các vấn đề về tai (ví dụ: mất thính lực), nếu nguyên nhân gốc đã được xác định, mã bệnh chính không nên là mã H91.9 (nghe kém không xác định)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân có dấu hiệu tâm thần nhẹ liên quan đến tuyến giáp thì không cần xét nghiệm máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hen phế quản là bệnh viêm mạn tính gây tắc nghẽn đường thở do phù nề, tăng tiết đờm dãi, và co thắt cơ trơn phế quản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm mạn tính chỉ gây chảy mủ tai thối, không gây ra biến chứng nội sọ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hạ đường huyết thường gặp ở bệnh nhân suy thượng thận cấp là do nguyên nhân tâm lý."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thiếu máu do bệnh mạn tính chỉ xảy ra ở người trẻ tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc phát hiện sớm ung thư phổi ở giai đoạn sớm nhất có cơ hội điều trị thành công cao hơn so với giai đoạn cuối."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư tuyến tiền liệt là ung thư phổ biến nhất ở nam giới dưới 50 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm tuyến mang tai do quai bị rất hiếm gặp viêm tinh hoàn ở tuổi dậy thì."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tránh ăn đồ chiên xào, nhiều dầu mỡ và sô cô la có thể làm trầm trọng thêm triệu chứng ợ nóng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh thoái hóa cơ tủy thể II thường không có khả năng ngồi độc lập."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư phổi thường không có triệu chứng rõ ràng ở giai đoạn đầu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý dây thần kinh ngoại biên chỉ xảy ra do các yếu tố chuyển hóa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh thần kinh ngoại biên phổ biến nhất là do lượng đường trong máu cao trong thời gian dài (tiểu đường)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nhiễm trùng huyết là hình thái bệnh nặng nhất trong nhiễm khuẩn hậu sản."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Co giật không kiểm soát là một trong các yếu tố tiên lượng nặng đối với trẻ sơ sinh bị bệnh não thiếu oxy thiếu máu cục bộ (HIE)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý do nấm Cryptococcus neoformans thường gây nhiễm trùng hệ thần kinh hoặc phổi do nấm thích nghi tốt với nhiệt độ cơ thể người."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cơn đau do viêm loét dạ dày thường trở nên nghiêm trọng hơn khi dạ dày rỗng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa cơ tủy thể IV khởi phát ở trẻ lớn từ 15 tuổi trở xuống."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh ĐTĐ chỉ là yếu tố nguy cơ thứ yếu, không độc lập đối với bệnh tim mạch."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh lỵ trực khuẩn, phân thường loãng như nước vo gạo nhưng không có nhầy máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tổn thương mắt như ngứa mắt, chảy nước mắt có thể là triệu chứng ít gặp của viêm đường hô hấp trên."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hội chứng HELLP là một biến chứng hậu sản được xác định bởi giảm tiểu cầu, tăng men gan và tăng huyết áp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong ung thư phổi, mệt mỏi có thể liên quan đến tế bào ung thư tiêu thụ năng lượng, rối loạn chuyển hóa và phản ứng viêm toàn thân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Loét dạ dày do stress không liên quan đến rối loạn thần kinh thực vật."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong vài trường hợp, người bệnh tâm thần nhẹ liên quan đến tuyến giáp, xét nghiệm máu không cần thiết để loại trừ nguyên nhân này."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Phẫu thuật thay khớp là phương pháp điều trị đầu tiên được áp dụng cho thoái hóa khớp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Một trong ba phương pháp điều trị cường giáp là liệu pháp điều trị phóng xạ bằng cách uống iod có gắn chất phóng xạ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ở nam giới tuổi 20-50, hầu hết NTTNDT là viêm niệu đạo hoặc viêm tuyến tiền liệt."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm màng ngoài tim, viêm van tim, và viêm cơ tim không liên quan đến viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Nhồi máu cơ tim cấp có thể gây tổn thương cơ tim vĩnh viễn và tử vong nếu lưu lượng máu không được phục hồi nhanh chóng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh thoái hóa cơ tủy thể III thường cần sử dụng xe lăn ngay từ khi khởi bệnh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Việc chẩn đoán co giật ở trẻ em chủ yếu dựa vào việc hỏi tiền sử sốt cao co giật, động kinh và chấn thương đầu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong bệnh lao phổi, một người bệnh không được phát hiện và điều trị có thể liên tục phát tán vi khuẩn lao suốt thời gian họ sống."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc điều trị bệnh mạch vành (CAD) chỉ được thực hiện bằng các thủ thuật tái tưới máu như phẫu thuật mà không cần điều trị nội khoa."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở giai đoạn sớm, ung thư đại trực tràng thường âm thầm, không có triệu chứng rõ ràng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn thần kinh là nguyên nhân hàng đầu gây tàn tật về thể chất và nhận thức trên toàn cầu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hút thuốc lá làm giảm khả năng hoạt động của cơ vòng dưới thực quản, từ đó làm trầm trọng thêm GERD."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau thắt ngực, khó thở, buồn nôn, nôn, mồ hôi lạnh và mệt mỏi đột ngột là các triệu chứng của thiếu máu cục bộ trong nhồi máu cơ tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Hóa trị là phương pháp điều trị hiệu quả duy nhất cho ung thư đại tràng giai đoạn IV."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn khí sắc lưỡng cực (Bipolar affective disorder) đặc trưng bởi sự luân phiên của các giai đoạn hưng cảm và trầm cảm, với sự phục hồi hoàn toàn giữa các giai đoạn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phụ nữ mang thai mắc đái tháo đường không cần thực hiện xét nghiệm vì bệnh thường không có triệu chứng rõ rệt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong viêm xương chũm cấp tính, triệu chứng đau thường không theo nhịp mạch đập."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hậu sản là giai đoạn 6 tuần kể từ ngày sinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh tay-chân-miệng lây truyền chủ yếu qua đường tiêu hoá từ nước bọt, phỏng nước và phân của trẻ nhiễm bệnh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ung thư biểu mô dạng nhú tuyến giáp thường là một nhân cứng, chắc, không đau, và di căn phổi thường gặp ở người trẻ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phì đại tuyến giáp có thể được đánh giá bằng siêu âm, giúp phát hiện bướu giáp dạng nốt ngay cả khi sờ không thấy."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong nhiễm trùng đường tiết niệu, vi khuẩn thường đi theo đường máu là nguyên nhân phổ biến nhất."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong hội chứng Alport, dị tật về mắt bao gồm lệch thấu kính ra phía trước và cận thị."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mạch vành không phải là nguyên nhân phổ biến gây tử vong ở bệnh nhân ĐTĐ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Giai đoạn hậu sản là khoảng thời gian 6 tuần kể từ ngày sinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong thời kỳ hậu sản, có thể xuất hiện các bệnh như trĩ và táo bón."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Đau ngực do cơ xương khớp thường là cảm giác đè nặng, xoắn vặn và giảm khi dùng thuốc trung hòa axit."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các triệu chứng bệnh hô hấp dưới thường nghiêm trọng hơn, chuyển biến từ nhẹ sang nặng với tốc độ nhanh chóng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn đông máu và hội chứng rối loạn sinh tủy là các bệnh về máu thường gặp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm có thể gây ra các rối loạn chức năng như khó tập trung, mệt mỏi, và rối loạn giấc ngủ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hệ miễn dịch bao gồm cả suy giảm miễn dịch bẩm sinh (nguyên phát) và đáp ứng quá mẫn (dị ứng, tự miễn)."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong cơn nhồi máu cơ tim cấp, ngưng tim đột ngột không thể xảy ra mà không có tín hiệu báo trước."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong viêm não, tiêu chuẩn phụ bao gồm rối loạn tri giác kéo dài trên 24 giờ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm gan virus B và C có con đường lây truyền tương tự như virus HIV, và có thể dẫn đến xơ gan và ung thư gan. (Repeated concept, but new phrasing)"}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trì hoãn điều trị bệnh lý dây thần kinh ngoại biên không dẫn đến biến chứng nghiêm trọng hơn."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Liệu pháp phân tâm học có thể kéo dài ít nhất 1 năm và hiệu quả trong việc cải thiện rối loạn lo âu và trầm cảm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong thời kỳ khởi phát (viêm long) của ho gà, ở trẻ nhỏ dưới 3 tháng tuổi, giai đoạn này thường chỉ kéo dài một vài ngày hoặc không có."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Chốc loét thường gặp trên trẻ em, người già suy dinh dưỡng nặng hay người suy giảm miễn dịch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trào ngược dạ dày có thể gây ho mãn tính, viêm thanh quản và hen suyễn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Việc đo chỉ số HbA1c và TSH (thyrotropin) không liên quan đến nguy cơ mắc bệnh mạch vành (CHD) nếu các chỉ số này vẫn trong giới hạn bình thường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Dị tật bẩm sinh ở tim là loại dị tật bẩm sinh có tỷ lệ mắc phải cao nhất ở trẻ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh ung thư hạch là biến chứng ít gặp và không liên quan đến bệnh viêm khớp dạng thấp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm có thể gây ra nhiều biến chứng nguy hiểm như áp-xe não, viêm màng não và liệt dây thần kinh mặt."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho dai dẳng do suy tim thường được cải thiện nếu bệnh nhân được điều trị suy tim thích hợp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Ho ra máu là triệu chứng hiếm gặp và không quan trọng trong chẩn đoán ung thư phổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm đường hô hấp trên thường không quá nghiêm trọng, chỉ kéo dài vài ngày và đa phần không để lại biến chứng nguy hiểm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các biểu hiện ở mắt (như ngứa mắt hoặc bỏng) có thể là triệu chứng ngoài khớp của bệnh viêm khớp dạng thấp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nguy cơ mắc ung thư tuyến tiền liệt tăng theo tuổi, đặc biệt ở nam trên 50 tuổi và người có chế độ ăn nhiều chất béo bão hòa."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phụ nữ có nguy cơ mắc viêm khớp dạng thấp cao gấp 10 lần so với nam giới."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm màng não mủ là nguyên nhân phổ biến nhất gây nghe kém mắc phải ở trẻ em."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh tim bẩm sinh là một trong những bệnh lý có tỷ lệ mắc phải thấp nhất trong các loại bệnh bẩm sinh ở trẻ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Cường giáp có thể gây ra triệu chứng sợ nóng và tăng tiết mồ hôi, thường bị nhầm lẫn với các triệu chứng bốc hỏa ở phụ nữ mãn kinh."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tổn thương đáy mắt giai đoạn 3 và 4 (xuất tiết, xuất huyết, phù) là dấu hiệu của tăng huyết áp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh mô liên kết hỗn hợp (MCTD) là bệnh đặc trưng bởi sự giao thoa giữa các đặc điểm lâm sàng của một số bệnh tự miễn khác."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm có nguy cơ dẫn đến các biến chứng nội sọ nguy hiểm như áp-xe não, kèm theo đau đầu dữ dội."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các mảng xơ vữa động mạch không ổn định trong mạch vành thường gây hẹp dưới 50% lòng mạch và vỡ một cách bất ngờ."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Xơ vữa động mạch là cơ chế bệnh sinh chính dẫn đến hầu hết các bệnh tim mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các mã cho các bệnh lý da liễu ít gây tử vong (ví dụ: Trứng cá) không được sử dụng để mã hóa nguyên nhân tử vong."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Sự phơi nhiễm với virus Epstein–Barr (EBV) có liên quan đến việc tăng nguy cơ mắc bệnh Đa xơ cứng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn tâm thần do nguyên nhân hữu cơ (Organic mental disorders) được xác định dựa trên bằng chứng về bệnh lý não hoặc rối loạn hệ thống ảnh hưởng đến não."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phù chân chỉ là dấu hiệu của bệnh thận hoặc gan, không bao giờ là triệu chứng của suy tim."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Giảm tiểu cầu miễn dịch dai dẳng được định nghĩa là tình trạng giảm tiểu cầu kéo dài trên 12 tháng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Khám mắt định kỳ hàng năm là cần thiết để phát hiện sớm tật khúc xạ và sàng lọc các bệnh lý khác như đục thủy tinh thể."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh thần kinh ngoại biên có thể gây rối loạn thần kinh tự chủ, dẫn đến đổ mồ hôi bất thường và bất thường về huyết áp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh chàm tổ đỉa (Dyshidrotic Eczema) là một bệnh truyền nhiễm lây lan qua tiếp xúc da thông thường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Mất thăng bằng khi di chuyển không phải là triệu chứng của tổn thương dây thần kinh ngoại biên."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư dạ dày ở giai đoạn đầu thường biểu hiện rõ ràng bằng sụt cân và nôn ra máu."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tiêm vắc xin phòng cúm và phế cầu khuẩn không có vai trò trong việc phòng ngừa bệnh bụi phổi silic."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Rối loạn lo âu và trầm cảm không gây ra bất kỳ rối loạn chức năng nào ngoài tâm trạng chán nản."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong mọi trường hợp nghe kém, mã bệnh chính phải là H91.9 (Hearing loss, unspecified)."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính thường xuất hiện sau viêm tai giữa cấp tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong chẩn đoán sốt rét, mật độ ký sinh trùng được tính bằng cách đếm số lượng ký sinh trùng thể vô tính trên 200 bạch cầu trên lam máu giọt dày."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cao huyết áp thứ phát (I15.-) phải được ưu tiên mã hóa là bệnh chính ngay cả khi nguyên nhân (ví dụ: u nội tiết) đã được xác định."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các thuốc điều trị béo phì mang lại hiệu quả cao ngay cả khi người bệnh không phối hợp với tiết thực giảm cân và tăng cường vận động thể lực."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tiếng thở khò khè trong ung thư phổi chỉ xuất hiện khi gắng sức, không bao giờ xảy ra khi nghỉ ngơi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Sự lão hóa da sớm không liên quan đến rối loạn viêm da cơ địa kéo dài."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh sởi phải được cách ly theo nguyên tắc lây truyền qua đường tiếp xúc."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tập thể dục đều đặn là phương pháp điều trị quan trọng nhất cho người bị thoái hóa khớp."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trì hoãn điều trị bệnh lý dây thần kinh ngoại biên có thể dẫn đến yếu liệt chi không phục hồi hoặc mất cảm giác vĩnh viễn."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm thị thần kinh có liên quan chặt chẽ đến bệnh đa xơ cứng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nguy cơ mắc Mụn trứng cá đỏ (Rosacea) cao hơn ở nam giới trên 30 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Phagosome trong bạch cầu trung tính (neutrophils) luôn được bịt kín ngay lập tức sau khi nuốt vi khuẩn, loại bỏ khả năng điều chỉnh nội dung sau đó."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Các mã như Rung nhĩ (I48) và Suy tim (I50) không bao giờ được coi là hậu quả của bệnh đái tháo đường."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thiếu máu tán huyết (D55-D59) chỉ bao gồm các bệnh lý bẩm sinh."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng ho kéo dài trên 3 tuần mà không giảm khi dùng thuốc phải nghĩ đến lao phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong điều trị béo phì cho trẻ em, không cần thiết phải tập thể dục, chỉ cần kiểm soát chế độ ăn uống."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tình trạng lên máu hậu sản (cao huyết áp) nếu không điều trị sớm có thể dẫn tới các biến chứng nguy hiểm như suy tim, tai biến mạch máu não và suy thận."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "NTTNDT ở nam giới từ 15 đến 50 tuổi thường được xem là nhiễm trùng tiết niệu phức tạp, cần đánh giá bất thường đường tiết niệu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn hành vi được xác định bằng những hành động, phản ứng không phù hợp và chỉ xuất hiện ở người trưởng thành."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thiếu máu tán huyết mắc phải (D59) là một bệnh lý nằm trong chương này."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Giảm tiểu cầu miễn dịch mạn tính được định nghĩa là giảm tiểu cầu kéo dài hơn 12 tháng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trẻ tự kỷ có tiên lượng tốt nếu có năng lực trí tuệ cao và ngôn ngữ có chức năng xuất hiện trước 6 tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các dấu hiệu gợi ý tăng huyết áp thứ phát bao gồm mạch đùi yếu so với mạch chi trên."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh gout (bệnh gút) là một loại bệnh cơ xương khớp không phải do chấn thương."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Lồi mắt ở người bệnh Basedow (cường giáp) có thể xuất hiện trước khi có biểu hiện cường giáp trên lâm sàng."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các cơn đau thắt ngực (Angina) thường kéo dài hơn 60 phút."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Để chẩn đoán bệnh thận do ĐTĐ, ở người bệnh ĐTĐ type 2, cần tìm albumin niệu ngay lúc mới chẩn đoán và sau đó mỗi năm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm tuyến tiền liệt mạn tính là một bệnh mạn tính phổ biến được liệt kê theo ICD-10."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Mụn trứng cá đỏ có nguy cơ mắc bệnh cao hơn ở nữ giới dưới 30 tuổi."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh mạch vành không phải là nguyên nhân gây tử vong hàng đầu ở Mỹ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Thoái hóa cơ tủy thể II (bắt đầu từ 6–12 tháng tuổi) thường không có khả năng ngồi độc lập."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tăng đường huyết mạn tính thúc đẩy quá trình xơ vữa động mạch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm xương chũm cấp tính thường biểu hiện bằng sốt cao (39–40°C), nhiễm độc, và đau sâu trong tai lan ra vùng chũm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Cấy nước tiểu được khuyến cáo ở phụ nữ mang thai và bệnh nhân suy giảm miễn dịch."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Các rối loạn thần kinh ngoại biên chỉ gây giảm chuyển động của cơ, không gây mất cảm giác ở tay chân."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Tăng huyết áp là yếu tố nguy cơ có thể thay đổi được đối với bệnh xơ vữa động mạch, đột quỵ và nhồi máu cơ tim."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh gan nhiễm mỡ không do rượu (NAFLD) chỉ là một rối loạn chuyển hóa nhẹ và không có khả năng dẫn đến bệnh gan nặng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Vi khuẩn lao dễ bị tiêu diệt bởi cồn và axit ở nồng độ đó vi khuẩn khác bị tiêu diệt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh lý mắt không thể là triệu chứng của bệnh tuyến giáp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Triệu chứng cảm giác đặc trưng của bệnh thần kinh ngoại biên bao gồm cảm giác bỏng rát và cảm giác đeo \"găng tay\" hoặc \"mang vớ\"."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn trầm cảm dai dẳng là tình trạng có triệu chứng trầm cảm kéo dài ít nhất 2 năm mà không thuyên giảm."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh ghẻ lây lan qua tiếp xúc da-da và dùng chung quần áo/giường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Trong cơn sốt rét, xét nghiệm mật độ ký sinh trùng sẽ được tính bằng đếm số lượng ký sinh trùng thể vô tính trên 200 hồng cầu trên lam máu giọt dày."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ở phụ nữ tuổi tiền mãn kinh, viêm bàng quang và viêm thận bể thận thường được coi là nhiễm trùng tiết niệu phức tạp."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Phụ nữ có tỷ lệ mắc viêm khớp dạng thấp thấp hơn so với nam giới."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Trong rối loạn trầm cảm, các triệu chứng rối loạn thực vật (mất ngủ, rối loạn ăn uống) thường đáp ứng với điều trị sớm hơn khí sắc."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tật khúc xạ là bệnh lý mắt được tìm thấy nhiều nhất ở trẻ em chỉ chiếm khoảng 10% các bệnh lý về mắt."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Glaucoma góc đóng là bệnh lý mắt thường gặp nhất ở trẻ em, chiếm khoảng 70% tổng số các ca bệnh về mắt ở nhóm tuổi này."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Viêm da cơ địa ở trẻ sơ sinh (dưới 1 tuổi) thường khởi phát chủ yếu khi trẻ được 2–3 tháng tuổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Táo bón, tiêu chảy, trào ngược dạ dày thực quản và bệnh trĩ là các vấn đề tiêu hóa phổ biến."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm thận bể thận thường liên quan đến sốt cao và vỗ hông lưng dương tính."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh nhân suy giảm miễn dịch không cần xét nghiệm kiểm tra hoặc điều trị nhiễm trùng đường tiết niệu không có triệu chứng."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh chàm tổ đỉa (Dyshidrotic Eczema) không lây lan qua tiếp xúc da thông thường."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm phổi là nguyên nhân gây tử vong ít gặp ở trẻ sơ sinh bị bệnh não thiếu oxy thiếu máu cục bộ."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Hội chứng sau chấn động (Postconcussional syndrome) được chẩn đoán khi không có triệu chứng thực thể đi kèm."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Ung thư dương vật thường biểu hiện ở những vùng da tiếp xúc nhiều với ánh nắng mặt trời như cánh tay và chân."}, {"role": "model", "content": "Sai"}]}
+{"messages": [{"role": "user", "content": "Bệnh uốn ván toàn thân thường khởi phát với thời kỳ ủ bệnh (từ khi có vết thương đến khi cứng hàm) kéo dài trung bình từ 7 đến 14 ngày."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Viêm tử cung toàn bộ có thể gây viêm phúc mạc hoặc nhiễm trùng máu."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Bệnh phổi kẽ (ILD) đặc trưng bởi sự hiện diện của viêm bất thường và xơ hóa trong phổi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Nếu một người bệnh có biểu hiện co giật do đột quỵ não, nên dùng đũa quấn vải sạch để chặn ngang miệng nhằm tránh cắn vào lưỡi."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Tê bì chân tay, cảm giác châm chích, kiến bò thường gặp nhất ở chân, lan dần từ ngón chân đến bàn chân."}, {"role": "model", "content": "Đúng"}]}
+{"messages": [{"role": "user", "content": "Rối loạn suy giảm miễn dịch biến đổi phổ biến (D83) có tỷ lệ nhập viện thấp hơn Sarcoidosis (D86)."}, {"role": "model", "content": "Sai"}]}

@@ -14,6 +14,10 @@ import csv
 from pathlib import Path
 from typing import List, Dict, Tuple
 
+# STANDARDIZED INSTRUCTION - Force consistent user instruction following
+# Critical: Use Đúng/Sai (not Có/Không) to match unified training format
+STANDARD_INSTRUCTION_PREFIX = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
+
 def load_disease_data(json_file: str) -> List[Dict]:
     """Load disease data from JSON file."""
     
@@ -25,6 +29,11 @@ def load_disease_data(json_file: str) -> List[Dict]:
 def generate_yes_no_questions(diseases: List[Dict], num_pairs_per_disease: int = 1) -> List[Dict]:
     """
     Generate Yes/No questions for ICD-10 diseases.
+    
+    CRITICAL FIX: 
+    - Use standardized instruction prefix for ALL questions
+    - Convert answers to Đúng/Sai (not Có/Không) for unified training
+    - Remove conflicting answer instructions
     
     Args:
         diseases: List of disease dictionaries
@@ -50,11 +59,11 @@ def generate_yes_no_questions(diseases: List[Dict], num_pairs_per_disease: int =
             continue
         
         for pair_num in range(num_pairs_per_disease):
-            # Generate YES question (correct pairing)
+            # Generate YES question (correct pairing) - with standardized prefix
             yes_question = {
-                "question": f"Mã {code_no_dots} là bệnh {correct_name}?",
-                "answer": "yes",
-                "answer_vi": "có",
+                "instruction": STANDARD_INSTRUCTION_PREFIX + f"Mã {code_no_dots} là bệnh {correct_name}.",
+                "input": "",
+                "output": "Đúng",  # CRITICAL: Use Đúng (not Có) for consistency
                 "code": code_no_dots,
                 "correct_name": correct_name,
                 "question_type": "correct_pairing",
@@ -62,16 +71,16 @@ def generate_yes_no_questions(diseases: List[Dict], num_pairs_per_disease: int =
             }
             questions.append(yes_question)
             
-            # Generate NO question (incorrect pairing)
+            # Generate NO question (incorrect pairing) - with standardized prefix
             # Select a random wrong Vietnamese name
             wrong_names = [name for name in all_vietnamese_names if name != correct_name]
             if wrong_names:
                 wrong_name = random.choice(wrong_names)
                 
                 no_question = {
-                    "question": f"Mã {code_no_dots} là bệnh {wrong_name}?",
-                    "answer": "no",
-                    "answer_vi": "không",
+                    "instruction": STANDARD_INSTRUCTION_PREFIX + f"Mã {code_no_dots} là bệnh {wrong_name}.",
+                    "input": "",
+                    "output": "Sai",  # CRITICAL: Use Sai (not Không) for consistency
                     "code": code_no_dots,
                     "correct_name": correct_name,
                     "wrong_name": wrong_name,
@@ -84,76 +93,47 @@ def generate_yes_no_questions(diseases: List[Dict], num_pairs_per_disease: int =
         if (i + 1) % 1000 == 0:
             print(f"  📊 Generated questions for {i + 1} diseases...")
     
-    print(f"✅ Generated {len(questions)} questions total")
+    print(f"✅ Generated {len(questions)} questions total (all with standardized prefix & Đúng/Sai)")
     return questions
 
 def generate_gemma_chat_format(questions: List[Dict]) -> List[Dict]:
-    """Convert questions to Gemma-1B chat format."""
+    """Convert questions to Gemma-1B chat format (NOT USED - questions already have standardized format)."""
     
-    print("🤖 Converting to Gemma-1B chat format...")
+    print("⏭️  Skipping: Questions already have standardized instruction format")
     
-    gemma_formatted = []
-    
-    for question in questions:
-        # Vietnamese chat format for Gemma training
-        chat_entry = {
-            "messages": [
-                {
-                    "role": "system",
-                    "content": "Trợ lý AI Y tế. Chỉ trả lời: Có hoặc Không."
-                },
-                {
-                    "role": "user", 
-                    "content": question["question"]
-                },
-                {
-                    "role": "assistant",
-                    "content": question["answer_vi"].capitalize()
-                }
-            ],
-            "answer": question["answer"],
-            "answer_vi": question["answer_vi"],
-            "question": question["question"],
-            "code": question["code"],
-            "correct_name": question["correct_name"],
-            "question_type": question["question_type"],
-            "disease_id": question["disease_id"],
-            "source": "icd10_vietnam"
-        }
-        
-        # Add wrong_name field for NO questions
-        if "wrong_name" in question:
-            chat_entry["wrong_name"] = question["wrong_name"]
-        
-        gemma_formatted.append(chat_entry)
-    
-    print(f"✅ Converted {len(gemma_formatted)} questions to chat format")
-    return gemma_formatted
+    # Keep questions as-is since they already have instruction + output format
+    return questions
 
 def save_questions_multiple_formats(questions: List[Dict], base_filename: str = "icd10_yesno_questions"):
-    """Save questions in multiple formats."""
+    """Save questions in multiple formats (JSONL for training, JSON for analysis)."""
     
     output_dir = Path("generated_questions")
     output_dir.mkdir(exist_ok=True)
     
-    # Save as JSON
+    # Save as JSON (full format with metadata)
     json_file = output_dir / f"{base_filename}.json"
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(questions, f, ensure_ascii=False, indent=2)
     print(f"💾 JSON saved to: {json_file}")
     
-    # Save as JSONL for training
+    # Save as JSONL for training (standardized instruction+output format)
     jsonl_file = output_dir / f"{base_filename}.jsonl"
     with open(jsonl_file, 'w', encoding='utf-8') as f:
         for question in questions:
-            f.write(json.dumps(question, ensure_ascii=False) + '\n')
+            # Extract only the fields needed for training
+            training_sample = {
+                "instruction": question["instruction"],
+                "input": question.get("input", ""),
+                "output": question["output"]
+            }
+            f.write(json.dumps(training_sample, ensure_ascii=False) + '\n')
     print(f"📝 JSONL saved to: {jsonl_file}")
     
     # Save as CSV for analysis
     csv_file = output_dir / f"{base_filename}.csv"
     with open(csv_file, 'w', encoding='utf-8', newline='') as f:
         if questions:
-            fieldnames = ['question', 'answer', 'answer_vi', 'code', 'correct_name', 
+            fieldnames = ['instruction', 'output', 'code', 'correct_name', 
                          'question_type', 'disease_id']
             if 'wrong_name' in questions[0]:
                 fieldnames.append('wrong_name')
@@ -171,12 +151,13 @@ def save_questions_multiple_formats(questions: List[Dict], base_filename: str = 
     return json_file, jsonl_file, csv_file
 
 def create_balanced_dataset(questions: List[Dict]) -> List[Dict]:
-    """Create a balanced dataset with equal yes/no questions."""
+    """Create a balanced dataset with equal Đúng/Sai questions (standardized format)."""
     
-    yes_questions = [q for q in questions if q['answer'] == 'yes']
-    no_questions = [q for q in questions if q['answer'] == 'no']
+    # Use 'output' field for standardized format (Đúng/Sai)
+    yes_questions = [q for q in questions if q['output'] == 'Đúng']
+    no_questions = [q for q in questions if q['output'] == 'Sai']
     
-    print(f"📊 Original distribution: {len(yes_questions)} YES, {len(no_questions)} NO")
+    print(f"📊 Original distribution: {len(yes_questions)} Đúng, {len(no_questions)} Sai")
     
     # Take equal numbers of each
     min_count = min(len(yes_questions), len(no_questions))
@@ -189,7 +170,7 @@ def create_balanced_dataset(questions: List[Dict]) -> List[Dict]:
     # Shuffle the balanced dataset
     random.shuffle(balanced_questions)
     
-    print(f"📊 Balanced distribution: {min_count} YES, {min_count} NO")
+    print(f"📊 Balanced distribution: {min_count} Đúng, {min_count} Sai")
     return balanced_questions
 
 def generate_statistics(questions: List[Dict]) -> Dict:
@@ -197,8 +178,8 @@ def generate_statistics(questions: List[Dict]) -> Dict:
     
     stats = {
         "total_questions": len(questions),
-        "yes_questions": len([q for q in questions if q['answer'] == 'yes']),
-        "no_questions": len([q for q in questions if q['answer'] == 'no']),
+        "yes_questions": len([q for q in questions if q['output'] == 'Đúng']),
+        "no_questions": len([q for q in questions if q['output'] == 'Sai']),
         "unique_codes": len(set(q['code'] for q in questions)),
         "unique_diseases": len(set(q['correct_name'] for q in questions)),
         "question_types": {}
@@ -217,17 +198,17 @@ def print_sample_questions(questions: List[Dict], num_samples: int = 5):
     print(f"\n🔍 SAMPLE QUESTIONS:")
     print("=" * 60)
     
-    # Show mix of yes and no questions
-    yes_samples = [q for q in questions if q['answer'] == 'yes'][:num_samples//2 + 1]
-    no_samples = [q for q in questions if q['answer'] == 'no'][:num_samples//2 + 1]
+    # Show mix of Đúng and Sai questions
+    yes_samples = [q for q in questions if q['output'] == 'Đúng'][:num_samples//2 + 1]
+    no_samples = [q for q in questions if q['output'] == 'Sai'][:num_samples//2 + 1]
     
     samples = yes_samples + no_samples
     random.shuffle(samples)
     samples = samples[:num_samples]
     
     for i, question in enumerate(samples, 1):
-        print(f"{i}. Q: {question['question']}")
-        print(f"   A: {question['answer_vi'].capitalize()} ({question['answer']})")
+        print(f"{i}. Instruction: {question['instruction'][:80]}...")
+        print(f"   Output: {question['output']}")
         print(f"   Code: {question['code']} | Type: {question['question_type']}")
         if 'wrong_name' in question:
             print(f"   Wrong: {question['wrong_name']}")

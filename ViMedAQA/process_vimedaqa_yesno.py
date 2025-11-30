@@ -10,15 +10,21 @@ SUBSETS = ['disease', 'drug', 'body-part'] # Các phần của ViMedAQA
 SEED = 42
 random.seed(SEED)
 
+# STANDARDIZED instruction prefix - enforces consistent instruction following across all datasets
+STANDARD_INSTRUCTION_PREFIX = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
+
 def format_yes_no_prompt(question, proposed_answer):
     """
-    Tạo template câu hỏi Yes/No tự nhiên nhất cho tiếng Việt.
-    Thay vì nối chuỗi vụng về, ta dùng format kiểm chứng thông tin.
+    Tạo template câu hỏi Yes/No với tiền tố chuẩn hóa cho nhất quán.
+    
+    Thay vì nối chuỗi vụng về, ta dùng format kiểm chứng thông tin
+    với tiền tố chuẩn hóa để buộc model phải tuân theo hướng dẫn.
     """
-    # Template: Đưa ra ngữ cảnh và hỏi model xác nhận
+    # Combine question and proposed answer into single verification statement
+    verification_statement = f"Câu hỏi: {question} - Trả lời: {proposed_answer}"
+    
     return {
-        "context": f"Câu hỏi: {question}\nThông tin tham khảo: {proposed_answer}",
-        "question": "Dựa vào thông tin tham khảo, câu trả lời trên là ĐÚNG hay SAI so với câu hỏi?",
+        "statement": verification_statement,
     }
 
 def process_vimedaqa():
@@ -52,8 +58,8 @@ def process_vimedaqa():
                 # --- A. TẠO MẪU ĐÚNG (POSITIVE SAMPLE) ---
                 prompt_true = format_yes_no_prompt(q_text, a_true)
                 all_data.append({
-                    "instruction": prompt_true['question'],
-                    "input": prompt_true['context'],
+                    "instruction": STANDARD_INSTRUCTION_PREFIX + prompt_true['statement'],
+                    "input": "",
                     "output": "Đúng"
                 })
 
@@ -71,8 +77,8 @@ def process_vimedaqa():
                 if attempts < max_attempts:  # Only add if we found a valid false answer
                     prompt_false = format_yes_no_prompt(q_text, a_false)
                     all_data.append({
-                        "instruction": prompt_false['question'],
-                        "input": prompt_false['context'],
+                        "instruction": STANDARD_INSTRUCTION_PREFIX + prompt_false['statement'],
+                        "input": "",
                         "output": "Sai"
                     })
 

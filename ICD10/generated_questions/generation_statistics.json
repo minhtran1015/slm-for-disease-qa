@@ -1,0 +1,26 @@
+{
+  "full_dataset": {
+    "total_questions": 24438,
+    "yes_questions": 12219,
+    "no_questions": 12219,
+    "unique_codes": 12137,
+    "unique_diseases": 12067,
+    "question_types": {
+      "correct_pairing": 12219,
+      "incorrect_pairing": 12219
+    }
+  },
+  "balanced_dataset": {
+    "total_questions": 24438,
+    "yes_questions": 12219,
+    "no_questions": 12219,
+    "unique_codes": 12137,
+    "unique_diseases": 12067,
+    "question_types": {
+      "incorrect_pairing": 12219,
+      "correct_pairing": 12219
+    }
+  },
+  "generation_date": "2025-11-26",
+  "random_seed": 42
+}

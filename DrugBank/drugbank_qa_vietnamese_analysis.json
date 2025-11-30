@@ -1,0 +1,41 @@
+{
+  "config": {
+    "input_file": "drugbank vocabulary.csv",
+    "output_file": "drugbank_qa_vietnamese_20k.jsonl",
+    "analysis_file": "drugbank_qa_vietnamese_analysis.json",
+    "target_total": 20000,
+    "seed": 42,
+    "test_split_ratio": 0.1,
+    "log_level": "INFO"
+  },
+  "statistics": {
+    "total_drugs_available": 9764,
+    "drugs_used": 9764,
+    "positive_samples": 9764,
+    "negative_samples": 9764,
+    "total_generated": 19528
+  },
+  "sample_distribution": {
+    "train_samples": 17576,
+    "test_samples": 1952,
+    "total_samples": 19528,
+    "positive_ratio": 0.5,
+    "negative_ratio": 0.5
+  },
+  "sample_examples": {
+    "positive_example": {
+      "instruction": "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: Caprylic acid có phải là một loại thuốc hoặc dược phẩm không?",
+      "input": "",
+      "output": "Đúng",
+      "drug_name": "Caprylic acid",
+      "sample_type": "positive"
+    },
+    "negative_example": {
+      "instruction": "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: LGD-6972 có đại diện cho một thủ thuật phẫu thuật hoặc kỹ thuật y tế không?",
+      "input": "",
+      "output": "Sai",
+      "drug_name": "LGD-6972",
+      "sample_type": "negative"
+    }
+  }
+}

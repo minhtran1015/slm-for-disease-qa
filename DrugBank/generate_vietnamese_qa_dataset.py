@@ -69,13 +69,14 @@ NEGATIVE_TEMPLATES = [
     "{name} có đề cập đến một quá trình sinh lý hoặc chức năng cơ thể không?"
 ]
 
-# Additional context for instruction following in Vietnamese
+# STANDARDIZED INSTRUCTION - Force consistent user instruction following
+# All questions use the same prefix to teach model to follow instructions consistently
+STANDARD_INSTRUCTION = "Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: "
+
+# These templates are NO LONGER USED - we use consistent prefix instead
+# to prevent model from learning to ignore user instructions
 INSTRUCTION_TEMPLATES = [
-    "Dựa vào kiến thức dược học, hãy trả lời câu hỏi sau đây bằng Đúng hoặc Sai.",
-    "Xác định xem thực thể đã cho có phải là thuốc hay dược phẩm không. Trả lời bằng Đúng hoặc Sai.",
-    "Sử dụng kiến thức y khoa của bạn, phân loại xem đây có phải là hợp chất dược phẩm không. Trả lời Đúng hoặc Sai.",
-    "Đánh giá câu hỏi sau về phân loại thuốc và trả lời bằng Đúng hoặc Sai.",
-    "Dựa trên cơ sở dữ liệu y khoa và thông tin dược phẩm, hãy trả lời Đúng hoặc Sai."
+    STANDARD_INSTRUCTION  # Only use standardized instruction
 ]
 
 
@@ -175,14 +176,15 @@ class DrugBankQAGenerator:
             answer = "Sai"
         
         # Format the question
-        question = question_template.format(name=drug_name)
+        question_content = question_template.format(name=drug_name)
         
-        # Select instruction template
-        instruction = random.choice(INSTRUCTION_TEMPLATES)
+        # CRITICAL FIX: Use standardized instruction prefix
+        # Prepend standardized instruction to teach model to follow instructions
+        instruction = STANDARD_INSTRUCTION + question_content
         
         return {
             "instruction": instruction,
-            "input": question,
+            "input": "",  # Leave empty - instruction contains everything now
             "output": answer,
             "drug_name": drug_name,
             "sample_type": "positive" if is_positive else "negative"
@@ -251,10 +253,10 @@ class DrugBankQAGenerator:
         
         with open(train_file, 'w', encoding='utf-8') as f:
             for sample in train_data:
-                # Remove metadata fields for training
+                # Format: instruction contains everything, input is empty for standardized format
                 training_sample = {
                     "instruction": sample["instruction"],
-                    "input": sample["input"],
+                    "input": sample.get("input", ""),
                     "output": sample["output"]
                 }
                 json.dump(training_sample, f, ensure_ascii=False)
@@ -268,7 +270,7 @@ class DrugBankQAGenerator:
             for sample in test_data:
                 training_sample = {
                     "instruction": sample["instruction"],
-                    "input": sample["input"],
+                    "input": sample.get("input", ""),
                     "output": sample["output"]
                 }
                 json.dump(training_sample, f, ensure_ascii=False)
