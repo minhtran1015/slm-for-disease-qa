@@ -29,8 +29,8 @@ FILES = [
     ("../DrugBank/drugbank_qa_vietnamese_20k.jsonl", "alpaca", False),
     # HPO - FIXED instruction format to use standardized prefix
     ("../HPO/hpo_vietnamese_bilingual_train_fixed.jsonl", "alpaca", False),
-    # CLTL - using existing (already in correct format)
-    ("../data/medical_qa_vietnamese_cltl_train.jsonl", "alpaca", False),
+    # CLTL - using FIXED version with standardized instructions
+    ("../data/medical_qa_vietnamese_cltl_train_fixed.jsonl", "alpaca", False),
     # ICD-10 - using standardized prefix and Đúng/Sai
     ("../ICD10/generated_questions/icd10_yesno_full.jsonl", "alpaca", False),
     # ViMedAQA V2 - using the enhanced v2 dataset with 40k samples
