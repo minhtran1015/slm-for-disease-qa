@@ -2,6 +2,7 @@
 """
 FULLY MONITORED Training script for Vietnamese Medical Dataset with Gemma-1B
 Complete error logging, progress tracking, and crash handling
+Only works on Window machine
 """
 
 import json
