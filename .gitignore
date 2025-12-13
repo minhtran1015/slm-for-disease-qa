@@ -218,3 +218,4 @@ __marimo__/
 *.rar
 *.7z
 
+/checkpoint+eval_script
