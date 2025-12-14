@@ -10,7 +10,6 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Processing outputs and checkpoints
-*.jsonl
 *_checkpoint.json
 *_stats.json
 *.backup.*
