@@ -219,3 +219,4 @@ __marimo__/
 *.7z
 
 /checkpoint+eval_script
+/70acc

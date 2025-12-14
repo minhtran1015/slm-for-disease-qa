@@ -1,0 +1,16 @@
+{
+  "sources": {
+    "vimedaqa_original": 15285,
+    "drugbank": 17576,
+    "hpo": 18000,
+    "icd10": 24438,
+    "cltl": 1701
+  },
+  "oversampled": {
+    "vimedaqa": 30570
+  },
+  "vimedaqa_val": 2697,
+  "total_train": 92285,
+  "total_val": 2697,
+  "vimedaqa_percentage": 33.13
+}
