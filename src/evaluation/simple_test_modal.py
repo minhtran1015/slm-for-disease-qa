@@ -7,6 +7,8 @@ Uses HuggingFace token for base model access
 import modal
 import json
 import os
+import csv
+from datetime import datetime
 from typing import List, Dict, Any
 
 # Create Modal app
@@ -183,6 +185,7 @@ def evaluate_test_file(test_file: str = "./train_data/test.jsonl"):
     correct = 0
     total = 0
     answered = 0
+    detailed_results = []  # Store detailed results for CSV
     
     # Process all samples
     for i, sample in enumerate(test_data):
@@ -192,6 +195,23 @@ def evaluate_test_file(test_file: str = "./train_data/test.jsonl"):
         # Get prediction
         result = model.predict.remote(user_content)
         predicted = result['classification']
+        raw_response = result['raw_response']
+        
+        # Determine correctness
+        is_correct = predicted == expected_answer
+        score = 1.0 if is_correct else 0.0
+        
+        # Store detailed result
+        detailed_results.append({
+            'sample_id': i + 1,
+            'question': user_content.replace('Dựa trên kiến thức y khoa, hãy xác minh thông tin sau là Đúng hay Sai: ', ''),
+            'expected_answer': expected_answer,
+            'predicted_answer': predicted,
+            'raw_response': raw_response,
+            'is_correct': is_correct,
+            'score': score,
+            'status': '✅' if is_correct else '❌'
+        })
         
         total += 1
         if predicted in ["Đúng", "Sai"]:
@@ -205,18 +225,38 @@ def evaluate_test_file(test_file: str = "./train_data/test.jsonl"):
     accuracy = correct / answered if answered > 0 else 0
     answer_rate = answered / total if total > 0 else 0
     
+    # Generate CSV output filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_filename = f"evaluation_results_{timestamp}.csv"
+    
+    # Write detailed results to CSV
+    print(f"\n💾 Saving detailed results to {csv_filename}...")
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['sample_id', 'question', 'expected_answer', 'predicted_answer', 
+                     'raw_response', 'is_correct', 'score', 'status']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        # Write header
+        writer.writeheader()
+        
+        # Write all results
+        writer.writerows(detailed_results)
+    
     print(f"\n📊 Results:")
     print(f"Total samples: {total}")
     print(f"Answered: {answered} ({answer_rate:.1%})")
     print(f"Correct: {correct}")
     print(f"Accuracy: {accuracy:.1%}")
+    print(f"📄 Detailed results saved to: {csv_filename}")
     
     return {
         "total": total,
         "answered": answered,
         "correct": correct,
         "accuracy": accuracy,
-        "answer_rate": answer_rate
+        "answer_rate": answer_rate,
+        "csv_file": csv_filename,
+        "detailed_results": detailed_results
     }
 
 if __name__ == "__main__":

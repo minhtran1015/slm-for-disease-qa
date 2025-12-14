@@ -8,12 +8,12 @@ A comprehensive research project for training Small Language Models (SLMs) on me
 
 | Dataset | Target | Completed | Status |
 |---------|--------|-----------|--------|
-| **DrugBank** (Drugs) | 20,000 | 19,754 | ✅ Complete |
+| **DrugBank** (Drugs) | 20,000 | 19,528 | ✅ Complete |
 | **HPO** (Symptoms) | 20,000 | 20,000 | ✅ Complete |
 | **BioASQ/PubMedQA** (CLTL) | 2,000 | 1,890 | ✅ Complete |
-| **ICD-10 VN** (Diseases) | 20,000 | - | ⏳ Pending |
-| **ViMedAQA** (Reasoning) | 40,000 | - | ⏳ Pending |
-| **Total** | **102,000** | **41,644** | **41% Complete** |
+| **ICD-10 VN** (Diseases) | 20,000 | 24,438 | ✅ Complete |
+| **ViMedAQA** (Reasoning) | 40,000 | ~40,000 | ✅ Complete |
+| **Total** | **102,000** | **~105,856** | **100% Complete** |
 
 ## 🎯 Project Goals
 
@@ -22,29 +22,53 @@ A comprehensive research project for training Small Language Models (SLMs) on me
 3. **Multi-domain Coverage**: Drugs, symptoms, diseases, and medical reasoning
 4. **Cross-lingual Transfer**: Bridge international medical knowledge to Vietnamese
 
-## 📁 Dataset Structure
+## 📁 Project Structure
 
 ```
 slm-for-disease-qa/
-├── DrugBank/                          # Drug identification (19,754 samples)
-│   ├── drugbank_qa_vietnamese_extended_train.jsonl
-│   └── drugbank_qa_vietnamese_extended_test.jsonl
-├── HPO/                               # Symptom relationships (20,000 samples)
-│   ├── hpo_vietnamese_bilingual_train.jsonl    # Recommended
-│   ├── hpo_vietnamese_bilingual_test.jsonl
-│   └── convert_hpo_bilingual_modal.py
-├── BioASQ14b/                         # Source data for CLTL
-├── PubMedQA/                          # Source data for CLTL
-├── medical_qa_vietnamese_cltl_*.jsonl # Cross-lingual (1,890 samples)
-├── ICD10/                             # Diseases (pending)
-└── ViMedAQA/                          # Medical reasoning (pending)
+├── checkpoints/                       # Model Weights
+│   ├── checkpoint-8000/               # 🏆 BEST MODEL (~74% Acc)
+│   ├── checkpoint-8652/               # Latest checkpoint
+│   └── final/                         # Final export (same as 3000)
+├── data/                              # Data Directory
+│   ├── sources/                       # Raw source data
+│   │   ├── DrugBank/
+│   │   ├── HPO/
+│   │   ├── ICD10/
+│   │   ├── ViMedAQA/
+│   │   └── BioASQ14b/
+│   └── processed/                     # Training ready datasets
+│       └── train_data_v2/             # Unified dataset (Train/Val/Test)
+├── src/                               # Source Code
+│   ├── training/                      # Training scripts (Modal)
+│   ├── evaluation/                    # Evaluation scripts
+│   ├── data_generation/               # Dataset creation pipeline
+│   └── processing/                    # Analysis & translation
+└── results/                           # Evaluation logs & metrics
 ```
+
+## 🧠 Model Checkpoints & Training Experiments
+
+We conducted two training runs using different infrastructure.
+
+| Experiment | Infrastructure | Best Accuracy | Checkpoint | Notes |
+|------------|----------------|---------------|------------|-------|
+| **Local Run** | **NVIDIA RTX 5080** | **74.83%** | *Local* | 🏆 **Best Overall Performance** |
+| **Cloud Run** | Modal H100 | 74.16% | `checkpoint-8000` | Cloud baseline, available in repo |
+
+### Cloud Checkpoints (Available in `checkpoints/`)
+
+| Checkpoint | Training Step | Accuracy | Description |
+|------------|---------------|----------|-------------|
+| **checkpoint-8000** | 8000 | **74.16%** | Best Cloud Model |
+| checkpoint-8652 | 8652 (Max) | 73.68% | Slight overfitting |
+| checkpoint-3000 | 3000 | 64.85% | Early baseline |
 
 ## 📋 Dataset Formats
 
-### Standard Vietnamese Medical QA Format
+### Standard Vietnamese Medical QA Format (Alpaca)
 
-All datasets follow this unified format:
+Intermediate format used for processing:
 
 ```json
 {
@@ -54,140 +78,69 @@ All datasets follow this unified format:
 }
 ```
 
-### Dataset-Specific Features
+### Final Training Format (Gemma Chat)
 
-#### 1. DrugBank (Drug Identification)
+The model is trained on this conversational format:
 
-- **19,754 samples** (17,780 train + 1,974 test)
-- Scientific drug names + Vietnamese common names
-- 50% Đúng / 50% Sai balance
-
-#### 2. HPO (Symptom Relationships) - Bilingual
-
-- **20,000 samples** (18,000 train + 2,000 test)
-- Vietnamese (English) bilingual format
-- 8 instruction templates + 8 question templates
-- GPU-accelerated translation via Modal + NLLB-200
-
-#### 3. CLTL (Cross-Lingual Transfer Learning)
-
-- **1,890 samples** (1,701 train + 189 test)
-- English medical context + Vietnamese Q&A
-- Sources: BioASQ 14b + PubMedQA labeled
+```json
+{
+  "messages": [
+    {"role": "user", "content": "Dựa trên kiến thức triệu chứng y học, trả lời Đúng hoặc Sai.\nSuy tim...?"},
+    {"role": "model", "content": "Đúng"}
+  ]
+}
+```
 
 ## 🚀 Quick Start
 
-### Using the Datasets
+### 1. Load the Best Model
+
+```python
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+base_model_name = "google/gemma-1b-it"
+adapter_path = "checkpoints/checkpoint-8000"
+
+# Load Base Model
+base_model = AutoModelForCausalLM.from_pretrained(base_model_name, device_map="auto")
+tokenizer = AutoTokenizer.from_pretrained(adapter_path)
+
+# Load Adapter
+model = PeftModel.from_pretrained(base_model, adapter_path)
+```
+
+### 2. Using the Datasets
 
 ```python
 import json
 
-# Load any dataset
 def load_jsonl(filepath):
-    samples = []
+    data = []
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
-            samples.append(json.loads(line))
-    return samples
+            data.append(json.loads(line))
+    return data
 
-# Example: Load HPO bilingual dataset
-train_data = load_jsonl('HPO/hpo_vietnamese_bilingual_train.jsonl')
-test_data = load_jsonl('HPO/hpo_vietnamese_bilingual_test.jsonl')
+# Load unified training set
+train_set = load_jsonl('data/processed/train_data_v2/train.jsonl')
+val_set = load_jsonl('data/processed/train_data_v2/val.jsonl')
 
-print(f"Train: {len(train_data)}, Test: {len(test_data)}")
-# Output: Train: 18000, Test: 2000
+print(f"Train: {len(train_set)}, Val: {len(val_set)}")
 ```
 
-### Training Format
-
-```python
-# For SFT (Supervised Fine-Tuning)
-for sample in train_data:
-    prompt = f"{sample['instruction']}\n\n{sample['input']}"
-    response = sample['output']  # "Đúng" or "Sai"
-```
-
-## 🔧 Generating New Data
-
-### HPO Bilingual Dataset (Modal GPU)
-
-```bash
-# Install Modal
-pip install modal
-modal setup
-
-# Upload source data
-modal volume put medical-data HPO/hp.json hp.json
-
-# Run translation pipeline
-cd HPO/
-modal run --detach convert_hpo_bilingual_modal.py
-
-# Download results
-modal volume get medical-data hpo_vietnamese_bilingual_train.jsonl ./
-modal volume get medical-data hpo_vietnamese_bilingual_test.jsonl ./
-```
-
-### CLTL Dataset
-
-```bash
-# Upload source data
-modal volume put medical-data BioASQ14b/training14b.json training14b.json
-modal volume put medical-data PubMedQA/ori_pqal.json ori_pqal.json
-
-# Run translation
-modal run --detach translate_medical_crosslingual.py
-```
-
-## 📈 Template Variety
-
-### Instruction Templates (8 variants)
-
-- "Dựa trên kiến thức triệu chứng y học, trả lời Đúng hoặc Sai."
-- "Hãy cho biết câu sau đúng hay sai dựa vào kiến thức y khoa."
-- "Xác định tính đúng sai của nhận định sau về triệu chứng y học."
-- "Trả lời Đúng hoặc Sai cho câu hỏi y khoa sau."
-- "Dựa vào phân loại triệu chứng y học, hãy trả lời Đúng hoặc Sai."
-- "Với kiến thức về bệnh học, hãy xác nhận câu sau Đúng hay Sai."
-- "Câu hỏi về mối quan hệ triệu chứng - Trả lời Đúng hoặc Sai."
-- "Theo hệ thống phân loại y khoa, câu sau Đúng hay Sai?"
-
-### Question Templates (8 variants per type)
-
-- "... có phải là một dạng của ... không?"
-- "Trong y học, ... thuộc nhóm ... đúng không?"
-- "Triệu chứng ... có nằm trong nhóm ... không?"
-- "... có liên quan đến ... không?"
-- And more...
-
-## 🏗️ Technical Architecture
-
-### Translation Pipeline
-
-- **Model**: facebook/nllb-200-distilled-600M
-- **Infrastructure**: Modal A10G GPU
-- **Batch Size**: 128 terms per batch
-- **Processing Time**: ~2.5 minutes for 20k samples
-
-### Data Quality
-
-- **Balanced Classes**: 50% positive / 50% negative
-- **Bilingual Backup**: Vietnamese (English) format preserves original terms
-- **Diverse Templates**: Reduces model overfitting to specific patterns
-
-## 📖 Documentation
-
-- [Copilot Instructions](.github/copilot-instructions.md) - Detailed AI agent guidelines
-- [DrugBank README](DrugBank/README_VIETNAMESE_EXTENDED.md) - Drug dataset documentation
-- [HPO README](HPO/README.md) - Symptom dataset documentation
-
-## 🔬 Research Applications
-
-- Vietnamese medical chatbots
-- Clinical decision support systems
-- Medical education tools
-- Drug information systems
-- Symptom checking applications
+## 🔧 Training Pipeline
+ 
+Training was performed in two environments to validate performance:
+ 
+1.  **Cloud (Modal.com)**: NVIDIA H100 (80GB) - For scalability and reproducibility.
+2.  **Local Workstation**: NVIDIA RTX 5080 (32GB) - Achieved highest accuracy (74.83%).
+ 
+### Key Scripts
+ 
+1. **Data Generation**: `src/data_generation/create_train_data_v2.py`
+2. **Training**: `src/training/train_modal_resume.py`
+3. **Evaluation**: `src/evaluation/eval_all_checkpoints.py`
 
 ## 📜 License
 
@@ -199,7 +152,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **HPO (Human Phenotype Ontology)**: Symptom hierarchy and relationships
 - **BioASQ**: Biomedical question answering challenge
 - **PubMedQA**: PubMed-based QA dataset
-- **Modal**: GPU cloud infrastructure for translation
+- **Modal**: GPU cloud infrastructure
+- **Bộ Y tế Việt Nam**: ICD-10 Data
 
 ---
 

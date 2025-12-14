@@ -1,0 +1,6 @@
+sample_id,question,expected_answer,predicted_answer,raw_response,is_correct,score,status
+1,"Trong chốc loét, nếu tổn thương liền lại, nó không để lại sẹo xấu.",Sai,Đúng,Đúng,False,0.0,❌
+2,Việc xét nghiệm soi đờm trực tiếp thấy có vi khuẩn lao (AFB+) là tiêu chuẩn để chẩn đoán xác định một người mắc bệnh lao phổi.,Đúng,Sai,Sai,False,0.0,❌
+3,Cao huyết áp hậu sản là một tình trạng chỉ là vô căn (không rõ nguyên nhân) và không gây biến chứng nguy hiểm.,Sai,Sai,Sai,True,1.0,✅
+4,Bệnh võng mạc do ĐTĐ chỉ xảy ra ở người trẻ tuổi.,Sai,Sai,Sai,True,1.0,✅
+5,"Ở trẻ em biếng ăn, nên cho ăn vặt và uống đồ ngọt giữa các bữa ăn để bổ sung năng lượng.",Sai,Sai,Sai,True,1.0,✅
