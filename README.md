@@ -58,11 +58,22 @@ We conducted two training runs using different infrastructure.
 
 ### Cloud Checkpoints (Available in `checkpoints/`)
 
-| Checkpoint | Training Step | Accuracy | Description |
-|------------|---------------|----------|-------------|
+| Checkpoint | Training Step | Accuracy (Mixed) | Description |
+|------------|---------------|------------------|-------------|
 | **checkpoint-8000** | 8000 | **74.16%** | Best Cloud Model |
 | checkpoint-8652 | 8652 (Max) | 73.68% | Slight overfitting |
 | checkpoint-3000 | 3000 | 64.85% | Early baseline |
+
+## 📊 Detailed Evaluation Results
+
+The best model (`checkpoint-8000`) was evaluated on specific domain subsets:
+
+| Dataset | Split | Samples | Accuracy | Notes |
+|---------|-------|---------|----------|-------|
+| **ViMedAQA** | Test | 1,996 | **80.61%** | Core reasoning task |
+| **All Mixed** | Test | 1,246 | 74.16% | Generalization check |
+
+> **Note**: The model achieves effectively **80.6% accuracy** on the primary Vietnamese Medical QA task, demonstrating strong domain adaptation.
 
 ## 📋 Dataset Formats
 
